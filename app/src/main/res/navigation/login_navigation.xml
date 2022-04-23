@@ -9,7 +9,7 @@
         android:id="@+id/navigation_login"
         android:name="com.learnSpire.mobile.login.ui.login.LoginFragment"
         android:label="@string/title_login"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_courses" />
 
 <!--    fixme for testing only-->
     <fragment

@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/menu_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_courses">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.learnSpire.mobile.menu.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_courses"
+        android:name="com.learnSpire.mobile.menu.ui.courses.CoursesFragment"
+        android:label="@string/title_courses"
+        tools:layout="@layout/fragment_courses" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.learnSpire.mobile.menu.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_browse"
+        android:name="com.learnSpire.mobile.menu.ui.browse.BrowseFragment"
+        android:label="@string/title_browse"
+        tools:layout="@layout/fragment_browse" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.learnSpire.mobile.menu.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_marks"
+        android:name="com.learnSpire.mobile.menu.ui.marks.MarksFragment"
+        android:label="@string/title_marks"
+        tools:layout="@layout/fragment_marks" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.learnSpire.mobile.menu.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

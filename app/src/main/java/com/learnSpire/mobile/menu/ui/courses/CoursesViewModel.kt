@@ -1,13 +1,13 @@
-package com.learnSpire.mobile.menu.ui.notifications
+package com.learnSpire.mobile.menu.ui.courses
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class CoursesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "This is courses Fragment"
     }
     val text: LiveData<String> = _text
 }
