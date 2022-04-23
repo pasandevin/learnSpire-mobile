@@ -28,7 +28,7 @@ class MarksFragment : Fragment() {
         _binding = FragmentMarksBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
+        val textView: TextView = binding.textMarks
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }

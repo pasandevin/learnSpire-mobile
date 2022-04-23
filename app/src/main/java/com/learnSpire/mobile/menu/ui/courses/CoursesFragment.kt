@@ -22,15 +22,15 @@ class CoursesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
+        val coursesViewModel =
             ViewModelProvider(this).get(CoursesViewModel::class.java)
 
         _binding = FragmentCoursesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+//        val textView: TextView = binding.textHome
+        coursesViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
         }
         return root
     }

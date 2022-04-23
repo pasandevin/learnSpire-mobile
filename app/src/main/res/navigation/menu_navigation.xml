@@ -22,4 +22,10 @@
         android:name="com.learnSpire.mobile.menu.ui.marks.MarksFragment"
         android:label="@string/title_marks"
         tools:layout="@layout/fragment_marks" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.learnSpire.mobile.menu.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
