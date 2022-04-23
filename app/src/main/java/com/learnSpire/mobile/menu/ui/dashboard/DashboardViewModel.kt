@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.ui.dashboard
+package com.learnSpire.mobile.menu.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

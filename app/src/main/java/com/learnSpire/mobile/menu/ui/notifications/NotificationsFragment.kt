@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.ui.notifications
+package com.learnSpire.mobile.menu.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

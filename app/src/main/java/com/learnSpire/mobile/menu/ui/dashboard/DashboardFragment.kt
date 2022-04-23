@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.ui.dashboard
+package com.learnSpire.mobile.menu.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
