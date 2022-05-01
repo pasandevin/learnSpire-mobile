@@ -1,13 +1,13 @@
-package com.learnSpire.mobile.menu.ui.browse
+package com.learnSpire.mobile.fragments.menu.marks
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class BrowseViewModel : ViewModel() {
+class MarksViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is browse Fragment"
+        value = "This is marks Fragment"
     }
     val text: LiveData<String> = _text
 }

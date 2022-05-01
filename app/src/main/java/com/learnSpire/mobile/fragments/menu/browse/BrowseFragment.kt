@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.menu.ui.courses
+package com.learnSpire.mobile.fragments.menu.browse
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.learnSpire.mobile.databinding.FragmentCoursesBinding
+import com.learnSpire.mobile.databinding.FragmentBrowseBinding
 
-class CoursesFragment : Fragment() {
+class BrowseFragment : Fragment() {
 
-    private var _binding: FragmentCoursesBinding? = null
+    private var _binding: FragmentBrowseBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,15 +22,15 @@ class CoursesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val coursesViewModel =
-            ViewModelProvider(this).get(CoursesViewModel::class.java)
+        val browseViewModel =
+            ViewModelProvider(this).get(BrowseViewModel::class.java)
 
-        _binding = FragmentCoursesBinding.inflate(inflater, container, false)
+        _binding = FragmentBrowseBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textHome
-        coursesViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
+        val textView: TextView = binding.textBrowse
+        browseViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
         }
         return root
     }

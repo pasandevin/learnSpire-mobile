@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.menu
+package com.learnSpire.mobile.activities
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView

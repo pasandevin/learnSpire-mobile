@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.menu.ui.browse
+package com.learnSpire.mobile.fragments.menu.marks
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.learnSpire.mobile.databinding.FragmentBrowseBinding
+import com.learnSpire.mobile.databinding.FragmentMarksBinding
 
-class BrowseFragment : Fragment() {
+class MarksFragment : Fragment() {
 
-    private var _binding: FragmentBrowseBinding? = null
+    private var _binding: FragmentMarksBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class BrowseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val browseViewModel =
-            ViewModelProvider(this).get(BrowseViewModel::class.java)
+        val notificationsViewModel =
+            ViewModelProvider(this).get(MarksViewModel::class.java)
 
-        _binding = FragmentBrowseBinding.inflate(inflater, container, false)
+        _binding = FragmentMarksBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textBrowse
-        browseViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textMarks
+        notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

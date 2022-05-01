@@ -1,7 +1,8 @@
-package com.learnSpire.mobile
+package com.learnSpire.mobile.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.learnSpire.mobile.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,13 +1,13 @@
-package com.learnSpire.mobile.menu.ui.browse
+package com.learnSpire.mobile.fragments.menu.courses
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ProfileViewModel : ViewModel() {
+class CoursesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is profile Fragment"
+        value = "This is courses Fragment"
     }
     val text: LiveData<String> = _text
 }

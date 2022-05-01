@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.api
+package com.learnSpire.mobile.models
 
 //fixme use real classes
 data class User(

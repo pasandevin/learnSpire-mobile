@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_courses"
-        android:name="com.learnSpire.mobile.menu.ui.courses.CoursesFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.courses.CoursesFragment"
         android:label="@string/title_courses"
         tools:layout="@layout/fragment_courses" />
 
     <fragment
         android:id="@+id/navigation_browse"
-        android:name="com.learnSpire.mobile.menu.ui.browse.BrowseFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.browse.BrowseFragment"
         android:label="@string/title_browse"
         tools:layout="@layout/fragment_browse" />
 
     <fragment
         android:id="@+id/navigation_marks"
-        android:name="com.learnSpire.mobile.menu.ui.marks.MarksFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.marks.MarksFragment"
         android:label="@string/title_marks"
         tools:layout="@layout/fragment_marks" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.learnSpire.mobile.menu.ui.profile.ProfileFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
