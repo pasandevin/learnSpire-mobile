@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.learnSpire.mobile.fragments.login.SignInFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:label="@string/signin_fragment_label"
+        tools:layout="@layout/fragment_signin">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -18,8 +18,8 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.learnSpire.mobile.fragments.login.SignUpFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:label="@string/signup_fragment_label"
+        tools:layout="@layout/fragment_signup">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

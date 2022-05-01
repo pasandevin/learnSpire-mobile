@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.learnSpire.mobile.R
-import com.learnSpire.mobile.databinding.FragmentFirstBinding
+import com.learnSpire.mobile.databinding.FragmentSigninBinding
 
 class SignInFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentSigninBinding? = null
 
     private val binding get() = _binding!!
 
@@ -20,7 +20,7 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentSigninBinding.inflate(inflater, container, false)
         return binding.root
 
     }

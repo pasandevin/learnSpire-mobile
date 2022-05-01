@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.learnSpire.mobile.R
-import com.learnSpire.mobile.databinding.FragmentSecondBinding
+import com.learnSpire.mobile.databinding.FragmentSignupBinding
 
 class SignUpFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
+    private var _binding: FragmentSignupBinding? = null
 
     private val binding get() = _binding!!
 
@@ -20,7 +20,7 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding.root
 
     }
