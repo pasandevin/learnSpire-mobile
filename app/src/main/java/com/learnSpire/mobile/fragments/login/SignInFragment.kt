@@ -1,12 +1,15 @@
 package com.learnSpire.mobile.fragments.login
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.learnSpire.mobile.R
 import com.learnSpire.mobile.api.UmsApiService
 import com.learnSpire.mobile.databinding.FragmentSigninBinding
+import androidx.navigation.fragment.findNavController
 import com.learnSpire.mobile.models.SigninRequest
 import com.learnSpire.mobile.models.SigninResponse
 import retrofit2.Call
@@ -44,15 +47,15 @@ class SignInFragment : Fragment() {
                 userPassword = LoginPassword.text.toString()
 
                 if(userEmail=="" || userPassword=="") {
+
                     // Show enter again msg if user doesn't input anything
                     binding.textView2.text = "Please enter the Email and Password"
+
                 } else {
-                    //get and set data in Shared Preferences
-//                    var sharedPreferences = requireContext().getSharedPreferences("SharedPrefFile", Context.MODE_PRIVATE)
-//                    var editor = sharedPreferences.edit()
-//
-//                    val savedEmail = sharedPreferences.getString("Email",null)
-//                    val savedPassword = sharedPreferences.getString("Password",null)
+
+                    // Initialized Shared Preferences
+                    var sharedPreferences = requireContext().getSharedPreferences("SharedPrefFile", Context.MODE_PRIVATE)
+                    var editor = sharedPreferences.edit()
 
                     // create new signIn request
                     var signInRequest: SigninRequest = SigninRequest(userEmail, userPassword)
@@ -60,31 +63,25 @@ class SignInFragment : Fragment() {
                     // call the api
                     var signInResponse = umsApiService.signIn(signInRequest)
 
-//                    // check the email and password correct or not
-//                    if(signInResponse != null) {
-//
-////                        editor.apply() {
-////                            putBoolean("LoggedIn", LoginSwitch.isChecked)
-////                        }.apply()
-//
-//                        // Navigate to the Home screen
-//                        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-//
-//                    } else {
-//                        binding.textView2.text = "Email or Password incorrect"
-//                    }
-
                     signInResponse.enqueue(object: Callback<SigninResponse> {
                         override fun onResponse(call: Call<SigninResponse>, response: Response<SigninResponse>) {
                             val body = response.body()
 
                             body.let {
                                 if (it != null) {
-                                    // get the token from the response
-                                    println("Sign in success")
-                                    println(it.token)
+
+                                    if(LoginSwitch.isChecked) {
+                                        // save token to shared preferences
+                                        editor.apply() {
+                                            putString("token", it.token)
+                                        }.apply()
+                                    }
+
+                                    // navigate to the home menu activity
+                                    findNavController().navigate(R.id.action_SignInFragment_to_MenuActivity)
+
                                 } else {
-                                    println("Email or Password incorrect")
+                                    binding.textView2.text = "Email or Password incorrect"
                                 }
                             }
                         }
