@@ -28,7 +28,7 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textBrowse
+        val textView: TextView = binding.textNotifications
         NotificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
