@@ -7,24 +7,23 @@
         android:title="@string/title_courses" />
 
     <item
-        android:id="@+id/navigation_browse"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:title="@string/title_browse" />
-
-    <item
         android:id="@+id/navigation_marks"
         android:icon="@drawable/ic_grade_black_24dp"
         android:title="@string/title_marks" />
 
     <item
-        android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_person_black_24dp"
-        android:title="@string/title_profile" />
+        android:id="@+id/navigation_browse"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/title_browse" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_person_black_24dp"
+        android:icon="@drawable/ic_bell_black_24dp"
         android:title="@string/title_notifications" />
 
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/title_profile" />
 
 </menu>
