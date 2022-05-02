@@ -70,12 +70,10 @@ class SignInFragment : Fragment() {
                             body.let {
                                 if (it != null) {
 
-                                    if(LoginSwitch.isChecked) {
-                                        // save token to shared preferences
-                                        editor.apply() {
-                                            putString("token", it.token)
-                                        }.apply()
-                                    }
+                                    // save token to shared preferences
+                                    editor.apply() {
+                                        putString("token", it.token)
+                                    }.apply()
 
                                     // navigate to the home menu activity
                                     findNavController().navigate(R.id.action_SignInFragment_to_MenuActivity)
@@ -94,6 +92,10 @@ class SignInFragment : Fragment() {
 
                 }
             }
+        }
+
+        binding.LoginRegisterButton.setOnClickListener {
+            findNavController().navigate(R.id.action_SignInFragment_to_SignUpFragment)
         }
     }
 

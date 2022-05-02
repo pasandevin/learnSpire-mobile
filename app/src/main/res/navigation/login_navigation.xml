@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_SignInFragment_to_MenuActivity"
             app:destination="@id/MenuActivity" />
+        <action
+            android:id="@+id/action_SignInFragment_to_SignUpFragment"
+            app:destination="@id/SignUpFragment" />
     </fragment>
 
     <fragment
