@@ -28,4 +28,11 @@
         android:name="com.learnSpire.mobile.fragments.menu.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.learnSpire.mobile.fragments.menu.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
 </navigation>
