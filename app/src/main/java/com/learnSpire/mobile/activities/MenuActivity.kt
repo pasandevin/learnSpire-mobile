@@ -30,7 +30,8 @@ class MenuActivity : AppCompatActivity() {
                 R.id.navigation_courses,
                 R.id.navigation_browse,
                 R.id.navigation_marks,
-                R.id.navigation_profile
+                R.id.navigation_profile,
+                R.id.navigation_notifications
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
