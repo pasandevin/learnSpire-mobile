@@ -17,7 +17,7 @@
 
     <string name="course_name">Course Name</string>
     <string name="title_profile">Profile</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">learnSpire</string>
 
     <string name="signin_fragment_label">Signin</string>
     <string name="signup_fragment_label">Signup</string>
