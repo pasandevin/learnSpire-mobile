@@ -26,8 +26,8 @@
         tools:layout="@layout/fragment_signup">
 
         <action
-            android:id="@+id/action_SignUpFragment_to_MenuActivity"
-            app:destination="@id/MenuActivity" />
+            android:id="@+id/action_SignUpFragment_to_SignInFragment"
+            app:destination="@id/SignInFragment" />
     </fragment>
 
     <activity
