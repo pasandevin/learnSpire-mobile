@@ -13,7 +13,6 @@ import retrofit2.http.POST
 
 interface LmsApiService {
 
-    //fixme newly added code
     @GET("mark/getallmarks")
     fun getAllMarks(): Call<List<MarksResponse>>
 

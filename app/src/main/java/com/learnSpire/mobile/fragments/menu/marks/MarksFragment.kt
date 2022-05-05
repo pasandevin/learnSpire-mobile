@@ -21,7 +21,6 @@ class MarksFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    //fixme newly added lines
     private val lmsApiService = LmsApiService.create()
 
     override fun onCreateView(
@@ -34,7 +33,6 @@ class MarksFragment : Fragment() {
         return binding.root
     }
 
-    //fixme newly added method
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -50,17 +48,7 @@ class MarksFragment : Fragment() {
                 body.let {
                     if (it != null) {
                         marksList = it as ArrayList<MarksResponse>
-                        println("marksList: $marksList")
-                        println("marksList: $marksList")
-                        println("marksList: $marksList")
-                        println("marksList: $marksList")
-                        println("marksList: $marksList")
-                        println("marksList: $marksList")
-                        println("marksList: $marksList")
-                        //convert arraylist to list
                         val marksList2 = marksList.toList()
-
-
 
                         // set recycler view
                         val recyclerView = binding.recyclerviewMarks
@@ -69,12 +57,6 @@ class MarksFragment : Fragment() {
                         // set adapter
                         val adapter = activity?.let { it1 -> MarksAdapter(it1,marksList2) }
                         recyclerView.adapter = adapter
-
-
-
-
-
-
                     }
                 }
             }
