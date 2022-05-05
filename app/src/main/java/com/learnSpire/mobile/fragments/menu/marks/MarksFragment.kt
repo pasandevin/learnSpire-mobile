@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
+import com.learnSpire.mobile.adapters.MarksAdapter
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.databinding.FragmentMarksBinding
-import com.learnSpire.mobile.models.Course
 import com.learnSpire.mobile.models.MarksResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -52,17 +50,31 @@ class MarksFragment : Fragment() {
                 body.let {
                     if (it != null) {
                         marksList = it as ArrayList<MarksResponse>
-
-
                         println("marksList: $marksList")
+                        println("marksList: $marksList")
+                        println("marksList: $marksList")
+                        println("marksList: $marksList")
+                        println("marksList: $marksList")
+                        println("marksList: $marksList")
+                        println("marksList: $marksList")
+                        //convert arraylist to list
+                        val marksList2 = marksList.toList()
+
+
 
                         // set recycler view
-//                        val recyclerView = binding.recyclerviewEnrolledCourses
-//                        recyclerView.layoutManager = LinearLayoutManager(activity)
-//
-//                        // set adapter
-//                        val adapter = EnrolledCoursesAdapter(enrolledCoursesList)
-//                        recyclerView.adapter = adapter
+                        val recyclerView = binding.recyclerviewMarks
+                        recyclerView.layoutManager = LinearLayoutManager(activity)
+
+                        // set adapter
+                        val adapter = activity?.let { it1 -> MarksAdapter(it1,marksList2) }
+                        recyclerView.adapter = adapter
+
+
+
+
+
+
                     }
                 }
             }
@@ -77,4 +89,5 @@ class MarksFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
