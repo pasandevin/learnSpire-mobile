@@ -10,20 +10,26 @@
             android:id="@+id/textview_course_name"
             android:textSize="16dp"
             android:gravity="center"
-            android:padding="10dp"
-            android:layout_column="1" />
+            android:padding="15dp"
+            android:layout_column="1"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/textview_marks"
             android:textSize="16dp"
             android:gravity="center"
-            android:padding="10dp"
-            android:layout_column="2" />
+            android:padding="15dp"
+            android:layout_column="2"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/textview_grade"
             android:textSize="16dp"
             android:gravity="center"
-            android:padding="10dp"
-            android:layout_column="3" />
+            android:padding="15dp"
+            android:layout_column="3"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
     </TableRow>
 
 </TableLayout>

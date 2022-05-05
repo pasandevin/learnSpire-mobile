@@ -6,30 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".fragments.menu.marks.MarksFragment"
     android:stretchColumns="1,2,3"
-    android:layout_marginTop="8dp">
+    >
 
-    <TableRow>
+    <TableRow
+        android:background="@color/dark_green">
         <TextView
             android:text="Course Name"
             android:textSize="16dp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:gravity="center"
             android:padding="10dp"
-            android:layout_column="1" />
+            android:layout_column="1"
+            android:layout_width="30dp"/>
         <TextView
             android:text="Marks"
             android:textSize="16dp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:gravity="center"
             android:padding="10dp"
-            android:layout_column="2" />
+            android:layout_column="2"
+            android:layout_width="30dp"/>
         <TextView
             android:text="Grade"
             android:textSize="16dp"
             android:textStyle="bold"
+            android:textColor="@color/white"
             android:gravity="center"
             android:padding="10dp"
-            android:layout_column="3" />
+            android:layout_column="3"
+            android:layout_width="30dp"/>
     </TableRow>
 
     <androidx.recyclerview.widget.RecyclerView
