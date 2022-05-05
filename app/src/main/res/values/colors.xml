@@ -44,4 +44,6 @@
     <color name="bottom_nav_start_color">#218F48</color>
     <color name="bottom_nav_end_color">#43D477</color>
     <color name="toolbar_drawer_open_color">#24EF9C</color>
+    <color name="marks_table_row_backgroud">#F0F7F7</color>
+    <color name="marks_table_header_backgroud">#51B435</color>
 </resources>
