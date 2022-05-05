@@ -1,6 +1,7 @@
 package com.learnSpire.mobile.api
 
 import com.learnSpire.mobile.models.Course
+import com.learnSpire.mobile.models.MarksResponse
 import com.learnSpire.mobile.models.User
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
@@ -11,6 +12,10 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface LmsApiService {
+
+    //fixme newly added code
+    @GET("mark/getallmarks")
+    fun getAllMarks(): Call<List<MarksResponse>>
 
     @GET("/user/getuser")
     fun getUser(): Call<User>
