@@ -8,8 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.amulyakhare.textdrawable.TextDrawable
+import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.learnSpire.mobile.R
 import com.learnSpire.mobile.models.Course
+
 
 class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView.Adapter<EnrolledCoursesAdapter.ViewHolder>() {
 
@@ -25,7 +28,20 @@ class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course: Course = courseList[position]
 
+        // set the course name
         holder.courseNameText.text = course.name
+
+        // get first letter from the course name
+        var letter = course.name.get(0)
+
+        // generate random color
+        val generator = ColorGenerator.MATERIAL
+
+        // generate thumbnail image
+        val drawable = TextDrawable.builder().buildRect("", generator.getRandomColor())
+
+        // set the image
+        holder.imageView.setImageDrawable(drawable)
 
         //create a bundle to pass data to other fragments
         val bundle = Bundle()
