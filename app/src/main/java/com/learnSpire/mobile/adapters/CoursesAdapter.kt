@@ -13,13 +13,12 @@ import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.learnSpire.mobile.R
 import com.learnSpire.mobile.models.Course
 
-
-class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView.Adapter<EnrolledCoursesAdapter.ViewHolder>() {
+class CoursesAdapter(private val courseList: List<Course>): RecyclerView.Adapter<CoursesAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_view_enrolled_courses, parent, false)
+            .inflate(R.layout.card_view_courses, parent, false)
 
         return ViewHolder(view)
     }
