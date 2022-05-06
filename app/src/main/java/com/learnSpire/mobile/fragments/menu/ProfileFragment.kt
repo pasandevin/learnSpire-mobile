@@ -1,4 +1,4 @@
-package com.learnSpire.mobile.fragments.menu.profile
+package com.learnSpire.mobile.fragments.menu
 
 import android.content.Context
 import android.os.Bundle
