@@ -4,35 +4,65 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.learnSpire.mobile.adapters.CoursesAdapter
+import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.databinding.FragmentBrowseBinding
+import com.learnSpire.mobile.models.Course
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class BrowseFragment : Fragment() {
 
     private var _binding: FragmentBrowseBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private val lmsApiService = LmsApiService.create()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val browseViewModel =
-            ViewModelProvider(this).get(BrowseViewModel::class.java)
 
         _binding = FragmentBrowseBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
 
-        val textView: TextView = binding.textBrowse
-        browseViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var availableCoursesList = ArrayList<Course>()
+
+        // call the get enrolled courses api
+        var getAvailableCoursesResponse = lmsApiService.getAvailableCourses()
+
+        getAvailableCoursesResponse.enqueue(object: Callback<List<Course>> {
+            override fun onResponse(call: Call<List<Course>>, response: Response<List<Course>>) {
+                val body = response.body()
+
+                body.let {
+                    if (it != null) {
+                        availableCoursesList = it as ArrayList<Course>
+
+                        // set recycler view
+                        val recyclerView = binding.recyclerviewAvailableCourses
+                        recyclerView.layoutManager = LinearLayoutManager(activity)
+
+                        // set adapter
+                        val adapter = CoursesAdapter(availableCoursesList)
+                        recyclerView.adapter = adapter
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<Course>>, t: Throwable) {
+                println("Get Available Courses failed")
+            }
+        })
     }
 
     override fun onDestroyView() {

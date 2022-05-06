@@ -25,6 +25,9 @@ interface LmsApiService {
     @GET("/course/enrolledcourses")
     fun getEnrolledCourses(): Call<List<Course>>
 
+    @GET("/course/availablecourses")
+    fun getAvailableCourses(): Call<List<Course>>
+
     companion object {
 
         val API_URL = "https://lms.team8backend.tech"
