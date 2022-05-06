@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/signInTitle"
@@ -190,7 +191,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/LoginButton"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginTop="8dp"
         android:enabled="true"
