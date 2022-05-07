@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
@@ -43,9 +44,9 @@ class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView
         val bundle = Bundle()
         bundle.putString("courseId", course.id)
 
-        // navigate to map fragment and transfer data bundle
+        // navigate to the course content fragment and transfer data bundle
         holder.cardView.setOnClickListener {
-//            it.findNavController().navigate(R.id.action_FirstFragment_to_MapsFragment, bundle)
+            it.findNavController().navigate(R.id.action_CoursesFragment_to_CourseContentFragment, bundle)
         }
     }
 

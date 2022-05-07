@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">learnSpire</string>
     <string name="title_courses">Courses</string>
+    <string name="title_content">Content</string>
     <string name="title_browse">Browse</string>
     <string name="title_marks">Marks</string>
 

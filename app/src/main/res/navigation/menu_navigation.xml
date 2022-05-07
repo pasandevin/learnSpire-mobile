@@ -9,7 +9,17 @@
         android:id="@+id/navigation_courses"
         android:name="com.learnSpire.mobile.fragments.menu.CoursesFragment"
         android:label="@string/title_courses"
-        tools:layout="@layout/fragment_courses" />
+        tools:layout="@layout/fragment_courses" >
+        <action
+            android:id="@+id/action_CoursesFragment_to_CourseContentFragment"
+            app:destination="@id/course_content" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/course_content"
+        android:name="com.learnSpire.mobile.fragments.menu.CourseContentFragment"
+        android:label="@string/title_content"
+        tools:layout="@layout/fragment_course_content" />
 
     <fragment
         android:id="@+id/navigation_browse"
