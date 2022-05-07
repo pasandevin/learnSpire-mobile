@@ -1,9 +1,6 @@
 package com.learnSpire.mobile.api
 
-import com.learnSpire.mobile.models.Course
-import com.learnSpire.mobile.models.EnrollCourseRequest
-import com.learnSpire.mobile.models.MarksResponse
-import com.learnSpire.mobile.models.User
+import com.learnSpire.mobile.models.*
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -32,6 +29,9 @@ interface LmsApiService {
 
     @POST("/course/adduser")
     fun enrollCourse(@Body enrollCourseRequest: EnrollCourseRequest): Call<ResponseBody>
+
+    @POST("/content/getcontent")
+    fun getContent(@Body getContentRequest: GetContentRequest): Call<List<GetContentResponse>>
 
     companion object {
 
