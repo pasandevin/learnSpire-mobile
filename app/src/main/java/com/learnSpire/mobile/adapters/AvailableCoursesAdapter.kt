@@ -1,5 +1,6 @@
 package com.learnSpire.mobile.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class AvailableCoursesAdapter(private val courseList: List<Course>): RecyclerVie
     }
 
     // binds the list items to a view
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course: Course = courseList[position]
 
@@ -41,7 +43,9 @@ class AvailableCoursesAdapter(private val courseList: List<Course>): RecyclerVie
 
         // enroll the user to the course
         holder.enrollButton.setOnClickListener {
-
+            holder.enrollButton.setTextColor(R.color.rippleColor)
+            holder.enrollButton.setText("Enrolled")
+            holder.enrollButton.setEnabled(false)
         }
 
     }
