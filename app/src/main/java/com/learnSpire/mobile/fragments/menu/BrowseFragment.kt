@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.learnSpire.mobile.adapters.AvailableCoursesAdapter
 import com.learnSpire.mobile.adapters.CoursesAdapter
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.databinding.FragmentBrowseBinding
@@ -53,7 +54,7 @@ class BrowseFragment : Fragment() {
                         recyclerView.layoutManager = LinearLayoutManager(activity)
 
                         // set adapter
-                        val adapter = CoursesAdapter(availableCoursesList)
+                        val adapter = AvailableCoursesAdapter(availableCoursesList)
                         recyclerView.adapter = adapter
                     }
                 }
