@@ -31,7 +31,7 @@ interface LmsApiService {
     fun enrollCourse(@Body enrollCourseRequest: EnrollCourseRequest): Call<ResponseBody>
 
     @POST("/content/getcontent")
-    fun getContent(@Body getContentRequest: GetContentRequest): Call<List<GetContentResponse>>
+    fun getContent(@Body getContentRequest: GetContentRequest): Call<List<Content>>
 
     companion object {
 
