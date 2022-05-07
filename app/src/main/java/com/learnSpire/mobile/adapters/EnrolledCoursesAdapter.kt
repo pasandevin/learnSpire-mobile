@@ -30,9 +30,6 @@ class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView
         // set the course name
         holder.courseNameText.text = course.name
 
-        // get first letter from the course name
-        var letter = course.name.get(0)
-
         // generate random color
         val generator = ColorGenerator.MATERIAL
 

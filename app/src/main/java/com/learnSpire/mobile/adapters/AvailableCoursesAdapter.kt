@@ -12,9 +12,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.learnSpire.mobile.R
+import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.models.Course
+import com.learnSpire.mobile.models.EnrollCourseRequest
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AvailableCoursesAdapter(private val courseList: List<Course>): RecyclerView.Adapter<AvailableCoursesAdapter.ViewHolder>() {
+
+    private val lmsApiService = LmsApiService.create()
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,11 +51,32 @@ class AvailableCoursesAdapter(private val courseList: List<Course>): RecyclerVie
 
         // enroll the user to the course
         holder.enrollButton.setOnClickListener {
-            holder.enrollButton.setTextColor(R.color.rippleColor)
-            holder.enrollButton.setText("Enrolled")
-            holder.enrollButton.setEnabled(false)
-        }
 
+            // get course id
+            val courseId = course.id
+
+            // create enrollment request
+            val enrollCourseRequest = EnrollCourseRequest(courseId)
+
+            // call the enroll course api
+            var enrollCourseResponse = lmsApiService.enrollCourse(enrollCourseRequest)
+
+            enrollCourseResponse.enqueue(object: Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    val responseCode = response.code()
+
+                    if (responseCode == 200) {
+                        holder.enrollButton.setTextColor(R.color.rippleColor)
+                        holder.enrollButton.setText("Enrolled")
+                        holder.enrollButton.setEnabled(false)
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    println("Enrolled Course failed")
+                }
+            })
+        }
     }
 
     //number of the items in the list

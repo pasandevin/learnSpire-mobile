@@ -1,6 +1,7 @@
 package com.learnSpire.mobile.api
 
 import com.learnSpire.mobile.models.Course
+import com.learnSpire.mobile.models.EnrollCourseRequest
 import com.learnSpire.mobile.models.MarksResponse
 import com.learnSpire.mobile.models.User
 import okhttp3.OkHttpClient
@@ -8,6 +9,7 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
@@ -27,6 +29,9 @@ interface LmsApiService {
 
     @GET("/course/availablecourses")
     fun getAvailableCourses(): Call<List<Course>>
+
+    @POST("/course/adduser")
+    fun enrollCourse(@Body enrollCourseRequest: EnrollCourseRequest): Call<ResponseBody>
 
     companion object {
 
