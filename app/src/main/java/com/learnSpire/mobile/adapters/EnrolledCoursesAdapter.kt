@@ -1,6 +1,5 @@
 package com.learnSpire.mobile.adapters
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +14,10 @@ import com.learnSpire.mobile.R
 import com.learnSpire.mobile.models.Course
 
 class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView.Adapter<EnrolledCoursesAdapter.ViewHolder>() {
+
+    companion object {
+        public var courseId = ""
+    }
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -40,13 +43,14 @@ class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView
         // set the image
         holder.imageView.setImageDrawable(drawable)
 
-        //create a bundle to pass data to other fragments
-        val bundle = Bundle()
-        bundle.putString("courseId", course.id)
-
         // navigate to the course content fragment and transfer data bundle
         holder.cardView.setOnClickListener {
-            it.findNavController().navigate(R.id.action_CoursesFragment_to_CourseContentFragment, bundle)
+
+            // set the course id to access from other fragments or activities
+            courseId = course.id
+
+            // navigate to the course content activity
+            it.findNavController().navigate(R.id.action_CoursesFragment_to_CourseContentActivity)
         }
     }
 
