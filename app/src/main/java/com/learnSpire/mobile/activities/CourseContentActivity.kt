@@ -25,10 +25,14 @@ class CourseContentActivity : AppCompatActivity() {
         binding = ActivityCourseContentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var courseContentList = ArrayList<Content>()
-
-        // get course id
+        // get course id and name
         val courseId = EnrolledCoursesAdapter.courseId
+        val courseName = EnrolledCoursesAdapter.courseName
+
+        // set activity title as course name
+        setTitle(courseName)
+
+        var courseContentList = ArrayList<Content>()
 
         // create get content request
         val getContentRequest = GetContentRequest(courseId)
@@ -59,6 +63,5 @@ class CourseContentActivity : AppCompatActivity() {
                 println("Get Content failed")
             }
         })
-
     }
 }

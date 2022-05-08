@@ -17,6 +17,7 @@ class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView
 
     companion object {
         public var courseId = ""
+        public var courseName = ""
     }
 
     // create new views
@@ -46,8 +47,9 @@ class EnrolledCoursesAdapter(private val courseList: List<Course>): RecyclerView
         // navigate to the course content fragment and transfer data bundle
         holder.cardView.setOnClickListener {
 
-            // set the course id to access from other fragments or activities
+            // set the course id and name to access from other fragments or activities
             courseId = course.id
+            courseName = course.name
 
             // navigate to the course content activity
             it.findNavController().navigate(R.id.action_CoursesFragment_to_CourseContentActivity)
