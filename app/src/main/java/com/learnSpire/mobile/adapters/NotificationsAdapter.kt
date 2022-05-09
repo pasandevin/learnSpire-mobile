@@ -40,14 +40,6 @@ class NotificationsAdapter(private val notificationsList: List<GetNotificationsR
         // set the notification title
         holder.courseTitleText.text = notification.title
 
-//        // generate random color
-//        val generator = ColorGenerator.MATERIAL
-//
-//        // generate thumbnail image
-//        val drawable = TextDrawable.builder().buildRect("", generator.getRandomColor())
-
-        // set the image
-//        holder.imageView.setImageDrawable(drawable)
 
         // navigate to the notification content fragment and transfer data bundle
         holder.cardView.setOnClickListener {
@@ -58,7 +50,7 @@ class NotificationsAdapter(private val notificationsList: List<GetNotificationsR
 
 
             // navigate to the course content activity
-//            it.findNavController().navigate(R.id.action_NotificationsFragment_to_NotificationContentActivity)
+            it.findNavController().navigate(R.id.action_NotificationsFragment_to_NotificationContentActivity)
         }
     }
 

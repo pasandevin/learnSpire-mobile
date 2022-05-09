@@ -41,7 +41,11 @@
         android:id="@+id/navigation_notifications"
         android:name="com.learnSpire.mobile.fragments.menu.NotificationsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_courses" >
+        <action
+            android:id="@+id/action_NotificationsFragment_to_NotificationContentActivity"
+            app:destination="@id/NotificationContentActivity" />
+    </fragment>
 
     <activity
         android:id="@+id/LoginActivity"
@@ -55,6 +59,13 @@
         android:name="com.learnSpire.mobile.activities.CourseContentActivity"
         android:label="@string/title_content"
         tools:layout="@layout/activity_course_content">
+    </activity>
+
+    <activity
+        android:id="@+id/NotificationContentActivity"
+        android:name="com.learnSpire.mobile.activities.NotificationContentActivity"
+        android:label="@string/title_notification"
+        tools:layout="@layout/activity_notification_content">
     </activity>
 
 </navigation>
