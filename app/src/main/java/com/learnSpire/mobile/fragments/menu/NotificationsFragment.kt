@@ -50,7 +50,7 @@ class NotificationsFragment : Fragment() {
 
                 body.let {
                     if (it != null) {
-                        notificationsList = it as ArrayList<GetNotificationsResponse>
+                        notificationsList = it.reversed() as ArrayList<GetNotificationsResponse>
 
                         // set recycler view
                         val recyclerView = binding.recyclerviewNotifications

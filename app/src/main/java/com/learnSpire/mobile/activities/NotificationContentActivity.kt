@@ -29,7 +29,7 @@ class NotificationContentActivity  : AppCompatActivity() {
         val notificationTitle = NotificationsAdapter.title
 
         // set activity title as course name
-        setTitle(courseName)
+        title = courseName
 
         // create get content request
         val getNotificationContentRequest = GetNotificationContentRequest(courseId, notificationTitle)
@@ -45,11 +45,9 @@ class NotificationContentActivity  : AppCompatActivity() {
                 body.let {
                     if (it != null) {
                         val notificationContent = it as Notification
-                        println(notificationContent.courseId)
-                        println(notificationContent.courseTitle)
+                        println(notificationContent.title)
                         println(notificationContent.content)
                         println(notificationContent.timeStamp)
-
                     }
                 }
             }
