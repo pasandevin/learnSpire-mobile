@@ -34,13 +34,24 @@ class NotificationsAdapter(private val notificationsList: List<GetNotificationsR
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val notification: GetNotificationsResponse = notificationsList[position]
 
+        // generate random color
+        val generator = ColorGenerator.MATERIAL
+
+        // get the first letter of the course name
+        val letter = notification.courseName[0].toString()
+
+        // generate thumbnail image
+        val drawable = TextDrawable.builder()
+            .buildRound(letter, generator.getRandomColor())
+
+        // set the thumbnail image
+        holder.imageView.setImageDrawable(drawable)
+
         // set the course name
         holder.courseNameText.text = notification.courseName
 
         // set the notification title
         holder.courseTitleText.text = notification.title
-
-
 
         // navigate to the notification content fragment and transfer data bundle
         holder.cardView.setOnClickListener {
@@ -65,5 +76,6 @@ class NotificationsAdapter(private val notificationsList: List<GetNotificationsR
         val cardView: CardView = itemView.findViewById(R.id.cardview_notifications)
         val courseNameText: TextView = itemView.findViewById(R.id.text_course_name)
         val courseTitleText: TextView = itemView.findViewById(R.id.text_notification_title)
+        val imageView: ImageView = itemView.findViewById(R.id.profilePictureImageView)
     }
 }
