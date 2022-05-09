@@ -6,24 +6,36 @@ xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/cardview_notifications"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
-android:layout_margin="10dp">
+android:layout_margin="15dp"
+    android:elevation="0dp">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/rippleColor" >
+    >
 
+    <ImageView
+        android:id="@+id/imageview_notification_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_outline_notifications_none_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_course_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/course_name"
+        android:textColor="@color/dark_green"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="40dp"
         tools:ignore="MissingConstraints"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageview_notification_icon"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -32,12 +44,13 @@ android:layout_margin="10dp">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="15dp"
         android:text="@string/notification_title"
-        android:textSize="20sp"
+        android:fontFamily="@font/regular"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
         tools:ignore="MissingConstraints"
         app:layout_constraintTop_toBottomOf="@id/text_course_name"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageview_notification_icon"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
