@@ -28,9 +28,6 @@ class NotificationContentActivity  : AppCompatActivity() {
         val courseName = NotificationsAdapter.courseName
         val notificationTitle = NotificationsAdapter.title
 
-        // set activity title as course name
-        title = courseName
-
         // create get content request
         val getNotificationContentRequest = GetNotificationContentRequest(courseId, notificationTitle)
 
