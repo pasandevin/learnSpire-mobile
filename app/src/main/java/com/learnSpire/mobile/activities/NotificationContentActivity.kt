@@ -44,6 +44,7 @@ class NotificationContentActivity  : AppCompatActivity() {
                         val notificationContent = it as Notification
                         binding.textNotificationTitle.text = notificationContent.title
                         binding.textNotificationContent.text = notificationContent.content
+                        binding.textNotificationDate.text = notificationContent.timeStamp.substring(0, 10)
                     }
                 }
             }
