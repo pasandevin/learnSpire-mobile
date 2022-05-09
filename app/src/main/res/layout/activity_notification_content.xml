@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".activities.NotificationContentActivity">
 
+    <TextView
+        android:id="@+id/text_notification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/notification_title"
+        android:textSize="20sp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
+    <TextView
+        android:id="@+id/text_notification_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/notification_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_notification_title"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

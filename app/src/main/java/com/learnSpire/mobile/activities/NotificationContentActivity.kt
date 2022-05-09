@@ -45,9 +45,8 @@ class NotificationContentActivity  : AppCompatActivity() {
                 body.let {
                     if (it != null) {
                         val notificationContent = it as Notification
-                        println(notificationContent.title)
-                        println(notificationContent.content)
-                        println(notificationContent.timeStamp)
+                        binding.textNotificationTitle.text = notificationContent.title
+                        binding.textNotificationContent.text = notificationContent.content
                     }
                 }
             }
