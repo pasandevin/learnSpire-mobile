@@ -64,7 +64,7 @@
     <activity
         android:id="@+id/NotificationContentActivity"
         android:name="com.learnSpire.mobile.activities.NotificationContentActivity"
-        android:label="@string/title_notification"
+        android:label="@string/title_notification_content"
         tools:layout="@layout/activity_notification_content">
     </activity>
 

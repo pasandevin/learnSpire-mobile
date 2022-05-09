@@ -44,9 +44,10 @@ class NotificationsAdapter(private val notificationsList: List<GetNotificationsR
         // navigate to the notification content fragment and transfer data bundle
         holder.cardView.setOnClickListener {
 
-            // set the course id and notification title to access from other fragments or activities
-            courseId = notification.courseId
-            title = notification.title
+        // set the course id and notification title to access from other fragments or activities
+        courseId = notification.courseId
+            courseName = notification.courseName
+        title = notification.title
 
 
             // navigate to the course content activity

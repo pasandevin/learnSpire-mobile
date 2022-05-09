@@ -12,6 +12,9 @@ import retrofit2.http.POST
 
 interface LmsApiService {
 
+    @POST("/announcement/getnotification")
+    fun getNotificationContent(@Body getNotificationContentRequest: GetNotificationContentRequest): Call<Notification>
+
     @GET("/announcement/getnotifications")
     fun getAllNotifications(): Call<List<GetNotificationsResponse>>
 

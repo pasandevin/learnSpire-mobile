@@ -2,14 +2,10 @@ package com.learnSpire.mobile.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.learnSpire.mobile.adapters.CourseContentAdapter
-import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
 import com.learnSpire.mobile.adapters.NotificationsAdapter
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.databinding.ActivityNotificationContentBinding
-import com.learnSpire.mobile.models.Content
-import com.learnSpire.mobile.models.GetContentRequest
+import com.learnSpire.mobile.models.GetNotificationContentRequest
 import com.learnSpire.mobile.models.Notification
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,34 +31,30 @@ class NotificationContentActivity  : AppCompatActivity() {
         // set activity title as course name
         setTitle(courseName)
 
-        var notificationContentList = ArrayList<Notification>()
-
         // create get content request
         val getNotificationContentRequest = GetNotificationContentRequest(courseId, notificationTitle)
 
         // call the get enrolled courses api
-        var getContentResponse = lmsApiService.getNotificationContent(getNotificationContentRequest)
+        var getNotificationContentResponse = lmsApiService.getNotificationContent(getNotificationContentRequest)
 
-        getContentResponse.enqueue(object: Callback<List<Notification>> {
-            override fun onResponse(call: Call<List<Notification>>, response: Response<List<Notification>>) {
+
+        getNotificationContentResponse.enqueue(object: Callback<Notification> {
+            override fun onResponse(call: Call<Notification>, response: Response<Notification>) {
                 val body = response.body()
 
                 body.let {
                     if (it != null) {
-                        notificationContentList = it as ArrayList<Notification>
+                        val notificationContent = it as Notification
+                        println(notificationContent.courseId)
+                        println(notificationContent.courseTitle)
+                        println(notificationContent.content)
+                        println(notificationContent.timeStamp)
 
-                        // set recycler view
-                        val recyclerView = binding.recyclerviewCourseContent
-                        recyclerView.layoutManager = LinearLayoutManager(this@CourseContentActivity)
-
-                        // set adapter
-                        val adapter = CourseContentAdapter(courseContentList)
-                        recyclerView.adapter = adapter
                     }
                 }
             }
 
-            override fun onFailure(call: Call<List<Content>>, t: Throwable) {
+            override fun onFailure(call: Call<Notification>, t: Throwable) {
                 println("Get Notification Content failed")
             }
         })
