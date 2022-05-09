@@ -19,22 +19,21 @@
 
         <ImageView
             android:id="@+id/profilePictureImageView"
-            android:layout_width="51dp"
-            android:layout_height="48dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginStart="16dp"
             android:src="@drawable/circle_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.444" />
+            app:layout_constraintVertical_bias="0.523" />
 
         <TextView
             android:id="@+id/text_notification_title"
-            android:layout_width="285dp"
+            android:layout_width="307dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="0dp"
             android:fontFamily="@font/medium"
             android:text="@string/notification_title"
             android:textColor="@color/dark_green"
@@ -45,9 +44,9 @@
 
         <TextView
             android:id="@+id/text_course_name"
-            android:layout_width="284dp"
+            android:layout_width="307dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="12dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/regular"
             android:text="@string/course_name"
@@ -55,7 +54,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profilePictureImageView"
             app:layout_constraintTop_toBottomOf="@+id/text_notification_title"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
