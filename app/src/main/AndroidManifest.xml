@@ -17,6 +17,10 @@
             android:label="@string/title_activity_content"
             android:exported="false" />
         <activity
+            android:name=".activities.NotificationContentActivity"
+            android:label="@string/title_notification_content"
+            android:exported="false" />
+        <activity
             android:name=".activities.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/splashScreenTheme">
