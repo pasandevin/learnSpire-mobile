@@ -6,11 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".activities.AddCourseActivity">
 
-    <TextView
-        android:id="@+id/text_add_course"
+
+    <EditText
+        android:id="@+id/edit_text_course_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Course"
-        tools:ignore="MissingConstraints" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Course ID"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="99dp" />
+
+    <EditText
+        android:id="@+id/edit_text_course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Course Name"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_course_id"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_course_name"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="147dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
