@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".activities.AddCourseActivity">
 
+    <TextView
+        android:id="@+id/text_add_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Course"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.learnSpire.mobile.R
 import com.learnSpire.mobile.databinding.FragmentAddBinding
 import com.learnSpire.mobile.databinding.FragmentBrowseBinding
@@ -27,5 +28,25 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.buttonAddCourse.setOnClickListener {
+            //navigate to add course activity
+            it.findNavController().navigate(R.id.action_addFragment_to_addCourseActivity)
+        }
+
+        binding.buttonAddContent.setOnClickListener {
+            //navigate to add content activity
+            it.findNavController().navigate(R.id.action_addFragment_to_addContentActivity)
+        }
+
+        binding.buttonAddMarks.setOnClickListener {
+            //navigate to add marks activity
+            it.findNavController().navigate(R.id.action_addFragment_to_addMarksActivity)
+        }
+
+        binding.buttonAddAnnouncement.setOnClickListener {
+            //navigate to add announcement activity
+            it.findNavController().navigate(R.id.action_addFragment_to_addAnnouncementActivity)
+        }
     }
+
 }
