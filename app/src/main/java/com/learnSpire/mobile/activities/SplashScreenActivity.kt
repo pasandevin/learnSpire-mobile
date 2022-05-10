@@ -18,6 +18,9 @@ class SplashScreenActivity : AppCompatActivity() {
         // get token value from shared preferences
         var token = sharedPreferences.getString("token", "")
 
+        // get role value from shared preferences
+        var role = sharedPreferences.getString("role", "")
+
         // Initialize the image view
         var imageLogo = findViewById<ImageView>(R.id.image_logo)
 
@@ -31,8 +34,16 @@ class SplashScreenActivity : AppCompatActivity() {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             } else {
-                val intent = Intent(this, MenuActivity::class.java)
-                startActivity(intent)
+
+                // check if role is lecturer or student and navigate to appropriate activity
+                if (role == "lecturer") {
+                    val intent = Intent(this, LecturerMenuActivity::class.java)
+                    startActivity(intent)
+                } else if (role == "student") {
+                    val intent = Intent(this, MenuActivity::class.java)
+                    startActivity(intent)
+                }
+
             }
         }
     }
