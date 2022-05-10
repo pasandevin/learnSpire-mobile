@@ -30,12 +30,6 @@
         tools:layout="@layout/fragment_add_marks" />
 
     <fragment
-        android:id="@+id/navigation_add_announcement"
-        android:name="com.learnSpire.mobile.fragments.menu.AddAnnouncementFragment"
-        android:label="@string/title_add_announcement"
-        tools:layout="@layout/fragment_add_announcement" />
-
-    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.learnSpire.mobile.fragments.menu.ProfileFragment"
         android:label="@string/title_profile"
