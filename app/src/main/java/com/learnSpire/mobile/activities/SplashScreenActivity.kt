@@ -40,7 +40,7 @@ class SplashScreenActivity : AppCompatActivity() {
                     val intent = Intent(this, LecturerMenuActivity::class.java)
                     startActivity(intent)
                 } else if (role == "student") {
-                    val intent = Intent(this, MenuActivity::class.java)
+                    val intent = Intent(this, StudentMenuActivity::class.java)
                     startActivity(intent)
                 }
 
