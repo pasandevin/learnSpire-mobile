@@ -26,7 +26,11 @@ class LecturerMenuActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_profile
+                R.id.navigation_courses,
+                R.id.navigation_add_course,
+                R.id.navigation_add_content,
+                R.id.navigation_add_marks,
+                R.id.navigation_profile
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

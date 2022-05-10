@@ -6,4 +6,8 @@
     <string name="notification_title">Notification Title</string>
     <string name="notification_content">Notification Content</string>
     <string name="title_notification_content">Notification</string>
+    <string name="title_add_courses">Add Courses</string>
+    <string name="title_add_content">Add Content</string>
+    <string name="title_add_marks">Add Marks</string>
+    <string name="title_add_announcement">Add Announcement</string>
 </resources>
