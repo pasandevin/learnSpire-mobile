@@ -12,22 +12,10 @@
         tools:layout="@layout/fragment_courses" />
 
     <fragment
-        android:id="@+id/navigation_add_course"
-        android:name="com.learnSpire.mobile.fragments.menu.AddCourseFragment"
+        android:id="@+id/navigation_add_section"
+        android:name="com.learnSpire.mobile.fragments.menu.AddSectionFragment"
         android:label="@string/title_add_courses"
         tools:layout="@layout/fragment_add_course" />
-
-    <fragment
-        android:id="@+id/navigation_add_content"
-        android:name="com.learnSpire.mobile.fragments.menu.AddContentFragment"
-        android:label="@string/title_add_content"
-        tools:layout="@layout/fragment_add_content" />
-
-    <fragment
-        android:id="@+id/navigation_add_marks"
-        android:name="com.learnSpire.mobile.fragments.menu.AddMarksFragment"
-        android:label="@string/title_add_marks"
-        tools:layout="@layout/fragment_add_marks" />
 
     <fragment
         android:id="@+id/navigation_profile"
