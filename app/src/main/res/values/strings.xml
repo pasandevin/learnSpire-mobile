@@ -41,4 +41,5 @@
     <string name="title_add_content">Add Content</string>
     <string name="title_add_marks">Add Marks</string>
     <string name="title_add_announcement">Add Announcement</string>
+    <string name="title_add_section">Add</string>
 </resources>
