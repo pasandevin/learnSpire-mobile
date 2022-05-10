@@ -13,13 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearnSpireMobile">
         <activity
+            android:name=".activities.LecturerMenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_lecturer_menu" />
+        <activity
             android:name=".activities.CourseContentActivity"
-            android:label="@string/title_activity_content"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_content" />
         <activity
             android:name=".activities.NotificationContentActivity"
-            android:label="@string/title_notification_content"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_notification_content" />
         <activity
             android:name=".activities.SplashScreenActivity"
             android:exported="true"

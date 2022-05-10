@@ -32,4 +32,7 @@
     <string name="notification_title">Notification Title</string>
     <string name="notification_content">Notification Content</string>
     <string name="title_notification_content">Announcement</string>
+    <string name="title_activity_lecturer_menu">LecturerMenuActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
 </resources>

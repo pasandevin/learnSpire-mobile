@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.models.SigninRequest
 import com.learnSpire.mobile.models.SigninResponse
+import com.learnSpire.mobile.models.User
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,21 +79,49 @@ class SignInFragment : Fragment() {
                                         putString("token", it.token)
                                     }.apply()
 
-                                    // call the add user api
-                                    var addUserResponse = lmsApiService.addUser()
+                                    // call the get user api
+                                    var getUserResponse = lmsApiService.getUser()
 
-                                    addUserResponse.enqueue(object: Callback<ResponseBody> {
-                                        override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                                    getUserResponse.enqueue(object: Callback<User> {
+                                        override fun onResponse(call: Call<User>, response: Response<User>) {
+                                            val body = response.body()
 
+                                            body.let {
+                                                if (it != null) {
+
+                                                    // save role to shared preferences
+                                                    editor.apply() {
+                                                        putString("role", it.role)
+                                                    }.apply()
+
+                                                    // call the add user api
+                                                    var addUserResponse = lmsApiService.addUser()
+
+                                                    addUserResponse.enqueue(object: Callback<ResponseBody> {
+                                                        override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+
+                                                            // navigate to the home menu activity
+                                                            if (sharedPreferences.getString("role", null) == "lecturer") {
+                                                                println("lecturer")
+                                                                findNavController().navigate(R.id.action_SignInFragment_to_LecturerMenuActivity)
+                                                            } else if (sharedPreferences.getString("role", null) == "student") {
+                                                                println("student")
+                                                                findNavController().navigate(R.id.action_SignInFragment_to_MenuActivity)
+                                                            }
+                                                        }
+
+                                                        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                                                            println("Failed to add user")
+                                                        }
+                                                    })
+                                                }
+                                            }
                                         }
 
-                                        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                                            println("Failed to add user")
+                                        override fun onFailure(call: Call<User>, t: Throwable) {
+                                            println("Get User failed")
                                         }
                                     })
-
-                                    // navigate to the home menu activity
-                                    findNavController().navigate(R.id.action_SignInFragment_to_MenuActivity)
 
                                 } else {
                                     binding.textView2.text = "Email or Password incorrect"
