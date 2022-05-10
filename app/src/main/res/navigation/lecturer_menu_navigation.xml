@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_add"
-        android:name="com.learnSpire.mobile.fragments.menu.AddSectionFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.AddFragment"
         android:label="@string/title_add"
         tools:layout="@layout/fragment_add" />
 
