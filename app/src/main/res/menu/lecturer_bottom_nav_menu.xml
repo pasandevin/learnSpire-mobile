@@ -6,9 +6,9 @@
         android:icon="@drawable/ic_book_black_24dp"
         android:title="@string/title_courses" />
    <item
-        android:id="@+id/navigation_add_section"
+        android:id="@+id/navigation_add"
         android:icon="@drawable/ic_baseline_add_24"
-        android:title="@string/title_add_section" />
+        android:title="@string/title_add" />
    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_person_black_24dp"
