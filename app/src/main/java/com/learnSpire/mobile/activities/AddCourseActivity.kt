@@ -1,14 +1,8 @@
 package com.learnSpire.mobile.activities
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.text.InputType
-import android.widget.EditText
 import android.widget.Toast
-
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
 import com.learnSpire.mobile.R
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.databinding.ActivityAddCourseBinding
@@ -42,19 +36,23 @@ class AddCourseActivity : AppCompatActivity() {
             var addCourseResponse = lmsApiService.addNewCourse(course)
 
             addCourseResponse.enqueue(object : Callback<ResponseBody> {
+
                 override fun onResponse(
                     call: Call<ResponseBody>,
                     response: Response<ResponseBody>
                 ) {
                     if (response.isSuccessful) {
                         // show success message
-                        Toast.makeText(this@AddCourseActivity, "Course Added Successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@AddCourseActivity,
+                            "Course Added Successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                     } else {
                         // show error message
                         println("Failed to add course")
                     }
-
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
@@ -63,9 +61,5 @@ class AddCourseActivity : AppCompatActivity() {
             })
         }
 
-
-                        
-                    
-
-        }
     }
+}
