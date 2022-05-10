@@ -37,4 +37,8 @@
     <string name="title_dashboard">Dashboard</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_add_course">Add Course</string>
+    <string name="title_add_content">Add Content</string>
+    <string name="title_add_marks">Add Marks</string>
+    <string name="title_add_announcement">Add Announcement</string>
 </resources>
