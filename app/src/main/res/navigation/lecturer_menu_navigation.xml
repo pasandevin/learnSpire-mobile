@@ -14,8 +14,8 @@
     <fragment
         android:id="@+id/navigation_add_section"
         android:name="com.learnSpire.mobile.fragments.menu.AddSectionFragment"
-        android:label="@string/title_add_courses"
-        tools:layout="@layout/fragment_add_course" />
+        android:label="@string/title_add_section"
+        tools:layout="@layout/fragment_add_section" />
 
     <fragment
         android:id="@+id/navigation_profile"
