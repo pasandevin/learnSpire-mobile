@@ -12,22 +12,23 @@
         tools:layout="@layout/fragment_courses" />
 
     <fragment
-        android:id="@+id/navigation_add_course"
-        android:name="com.learnSpire.mobile.fragments.menu.AddCourseFragment"
-        android:label="@string/title_add_courses"
-        tools:layout="@layout/fragment_add_course" />
-
-    <fragment
-        android:id="@+id/navigation_add_content"
-        android:name="com.learnSpire.mobile.fragments.menu.AddContentFragment"
-        android:label="@string/title_add_content"
-        tools:layout="@layout/fragment_add_content" />
-
-    <fragment
-        android:id="@+id/navigation_add_marks"
-        android:name="com.learnSpire.mobile.fragments.menu.AddMarksFragment"
-        android:label="@string/title_add_marks"
-        tools:layout="@layout/fragment_add_marks" />
+        android:id="@+id/navigation_add"
+        android:name="com.learnSpire.mobile.fragments.menu.AddFragment"
+        android:label="@string/title_add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_addCourseActivity"
+            app:destination="@id/AddCourseActivity" />
+        <action
+            android:id="@+id/action_addFragment_to_addContentActivity"
+            app:destination="@id/AddContentActivity" />
+        <action
+            android:id="@+id/action_addFragment_to_addMarksActivity"
+            app:destination="@id/AddMarksActivity" />
+        <action
+            android:id="@+id/action_addFragment_to_addAnnouncementActivity"
+            app:destination="@id/AddAnnouncementsActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -44,6 +45,34 @@
         android:name="com.learnSpire.mobile.activities.LoginActivity"
         android:label="@string/app_name"
         tools:layout="@layout/activity_login">
+    </activity>
+
+    <activity
+        android:id="@+id/AddCourseActivity"
+        android:name="com.learnSpire.mobile.activities.AddCourseActivity"
+        android:label="@string/title_add_courses"
+        tools:layout="@layout/activity_add_course">
+    </activity>
+
+    <activity
+        android:id="@+id/AddContentActivity"
+        android:name="com.learnSpire.mobile.activities.AddContentActivity"
+        android:label="@string/title_add_content"
+        tools:layout="@layout/activity_add_content">
+    </activity>
+
+    <activity
+        android:id="@+id/AddMarksActivity"
+        android:name="com.learnSpire.mobile.activities.AddMarksActivity"
+        android:label="@string/title_add_marks"
+        tools:layout="@layout/activity_add_marks">
+    </activity>
+
+    <activity
+        android:id="@+id/AddAnnouncementsActivity"
+        android:name="com.learnSpire.mobile.activities.AddAnnouncementsActivity"
+        android:label="@string/title_add_announcements"
+        tools:layout="@layout/activity_add_announcements">
     </activity>
 
 </navigation>
