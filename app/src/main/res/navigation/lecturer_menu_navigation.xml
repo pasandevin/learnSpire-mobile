@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_lecturer_courses" >
         <action
             android:id="@+id/action_CoursesFragment_to_CourseContentActivity"
-            app:destination="@id/CourseContentActivity" />
+            app:destination="@id/LecturerCourseContentActivity" />
         <action
             android:id="@+id/action_CoursesFragment_to_AddCourseActivity"
             app:destination="@id/AddCourseActivity" />
@@ -83,10 +83,10 @@
     </activity>
 
     <activity
-        android:id="@+id/CourseContentActivity"
-        android:name="com.learnSpire.mobile.activities.CourseContentActivity"
+        android:id="@+id/LecturerCourseContentActivity"
+        android:name="com.learnSpire.mobile.activities.LecturerCourseContentActivity"
         android:label="@string/title_content"
-        tools:layout="@layout/activity_course_content">
+        tools:layout="@layout/activity_lecturer_course_content">
     </activity>
 
 </navigation>
