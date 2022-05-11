@@ -28,6 +28,8 @@ class AddAnnouncementsActivity : AppCompatActivity() {
         val courseId = EnrolledCoursesAdapter.courseId
         val courseName = EnrolledCoursesAdapter.courseName
 
+        title = "Add Announcement: $courseName"
+
         binding.buttonSubmit.setOnClickListener {
             var announcementTitle = binding.editTextAnnouncementTitle.text.toString()
             var announcementContent = binding.editTextAnnouncementContent.text.toString()
