@@ -1,6 +1,7 @@
 package com.learnSpire.mobile.activities
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -123,15 +124,18 @@ class LecturerCourseContentActivity : AppCompatActivity() {
             }
 
         mAddContentFab?.setOnClickListener {
-            it.findNavController().navigate(R.id.action_lecturerCourseContentActivity_to_addContentActivity)
+            //go to add content activity
+            Intent(this, AddContentActivity::class.java).also {
+                startActivity(it)
+            }
         }
+
         mAddAnnouncementFab?.setOnClickListener {
-            it.findNavController().navigate(R.id.action_lecturerCourseContentActivity_to_addAnnouncementActivity)
+            //go to add announcement activity
+            Intent(this, AddAnnouncementsActivity::class.java).also {
+                startActivity(it)
+            }
         }
-
-
-
-
 
     }
 }
