@@ -7,12 +7,15 @@
 
     <fragment
         android:id="@+id/navigation_courses"
-        android:name="com.learnSpire.mobile.fragments.menu.CoursesFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.LecturerCoursesFragment"
         android:label="@string/title_courses"
-        tools:layout="@layout/fragment_courses" >
+        tools:layout="@layout/fragment_lecturer_courses" >
         <action
             android:id="@+id/action_CoursesFragment_to_CourseContentActivity"
             app:destination="@id/CourseContentActivity" />
+        <action
+            android:id="@+id/action_CoursesFragment_to_AddCourseActivity"
+            app:destination="@id/AddCourseActivity" />
     </fragment>
 
     <fragment
