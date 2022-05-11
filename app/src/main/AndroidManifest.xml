@@ -33,6 +33,10 @@
             android:exported="false"
             android:label="@string/title_activity_content" />
         <activity
+            android:name=".activities.LecturerCourseContentActivity"
+            android:exported="false"
+            android:label="@string/title_activity_content" />
+        <activity
             android:name=".activities.NotificationContentActivity"
             android:exported="false"
             android:label="@string/title_notification_content" />
