@@ -6,11 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".activities.AddAnnouncementsActivity">
 
-    <TextView
-        android:id="@+id/text_add_announcements"
+    <EditText
+        android:id="@+id/edit_text_announcement_subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Announcements"
-        tools:ignore="MissingConstraints" />
+        android:ems="10"
+        android:inputType="text"
+        android:text="Subject"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="99dp" />
+
+    <EditText
+        android:id="@+id/edit_text_announcement_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Content"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_announcement_subject"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_announcement_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="147dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

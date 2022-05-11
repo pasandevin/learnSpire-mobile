@@ -18,6 +18,7 @@ import retrofit2.Response
 
 class LecturerCoursesFragment : Fragment() {
 
+
     private var _binding: FragmentLecturerCoursesBinding? = null
     private val binding get() = _binding!!
 
