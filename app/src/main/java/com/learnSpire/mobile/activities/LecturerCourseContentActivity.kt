@@ -87,12 +87,12 @@ class LecturerCourseContentActivity : AppCompatActivity() {
         //////////////////////////////
         mAddFab = findViewById(R.id.add_fab)
 
-        mAddAlarmFab = findViewById(R.id.add_alarm_fab)
-        mAddPersonFab = findViewById(R.id.add_person_fab)
+        mAddAlarmFab = findViewById(R.id.add_content_fab)
+        mAddPersonFab = findViewById(R.id.add_announcement_fab)
 
 
-        addAlarmActionText = findViewById(R.id.add_alarm_action_text)
-        addPersonActionText = findViewById(R.id.add_person_action_text)
+        addAlarmActionText = findViewById(R.id.add_content_action_text)
+        addPersonActionText = findViewById(R.id.add_announcement_action_text)
 
         mAddAlarmFab?.visibility = View.GONE
         mAddPersonFab?.visibility = View.GONE
