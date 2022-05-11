@@ -1,5 +1,6 @@
 package com.learnSpire.mobile.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,8 @@ class AddCourseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_course)
 
+        //set activity title as add course
+        title = "Add Course"
 
         binding = ActivityAddCourseBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -42,12 +45,18 @@ class AddCourseActivity : AppCompatActivity() {
                     response: Response<ResponseBody>
                 ) {
                     if (response.isSuccessful) {
+
                         // show success message
                         Toast.makeText(
                             this@AddCourseActivity,
                             "Course Added Successfully",
                             Toast.LENGTH_SHORT
                         ).show()
+
+                        // go to the course list fragment
+                        Intent(this@AddCourseActivity, LecturerMenuActivity::class.java).also {
+                            startActivity(it)
+                        }
 
                     } else {
                         // show error message
