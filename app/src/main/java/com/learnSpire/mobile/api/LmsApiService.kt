@@ -12,6 +12,9 @@ import retrofit2.http.POST
 
 interface LmsApiService {
 
+    @POST("/content/addcontent")
+    fun addContent(@Body content: Content): Call<ResponseBody>
+
     @POST("/announcement/addannouncement")
     fun addAnnouncement(@Body announcement: Announcement): Call<ResponseBody>
 

@@ -4,4 +4,5 @@ data class Announcement (
     val courseId: String,
     val title: String,
     val content: String,
-        )
+    val timeStamp: String
+    )
