@@ -14,16 +14,20 @@
         android:theme="@style/Theme.LearnSpireMobile">
         <activity
             android:name=".activities.AddAnnouncementsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_add_announcements"/>
         <activity
             android:name=".activities.AddMarksActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_add_marks"/>
         <activity
             android:name=".activities.AddContentActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_add_content"/>
         <activity
             android:name=".activities.AddCourseActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_add_courses"/>
         <activity
             android:name=".activities.LecturerMenuActivity"
             android:exported="false"
