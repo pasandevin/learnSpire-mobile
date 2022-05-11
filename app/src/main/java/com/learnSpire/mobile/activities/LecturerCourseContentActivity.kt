@@ -4,7 +4,9 @@ package com.learnSpire.mobile.activities
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -22,14 +24,12 @@ import retrofit2.Response
 
 class LecturerCourseContentActivity : AppCompatActivity() {
 
-    /////
-    var mAddAlarmFab: FloatingActionButton? = null
-    var mAddPersonFab:FloatingActionButton? = null
+    var mAddContentFab: FloatingActionButton? = null
+    var mAddAnnouncementFab:FloatingActionButton? = null
     var mAddFab: ExtendedFloatingActionButton? = null
-    var addAlarmActionText: TextView? = null
-    var addPersonActionText:TextView? = null
+    var addContentActionText: TextView? = null
+    var addAnnouncementActionText:TextView? = null
     var isAllFabsVisible: Boolean? = null
-    /////
 
     private lateinit var binding: ActivityLecturerCourseContentBinding
 
@@ -80,71 +80,54 @@ class LecturerCourseContentActivity : AppCompatActivity() {
             }
         })
 
-//        binding.floatingActionButton.setOnClickListener {
-//            val intent = Intent(this, AddContentActivity::class.java)
-//            startActivity(intent)
-//        }
-        //////////////////////////////
         mAddFab = findViewById(R.id.add_fab)
 
-        mAddAlarmFab = findViewById(R.id.add_content_fab)
-        mAddPersonFab = findViewById(R.id.add_announcement_fab)
+        mAddContentFab = findViewById(R.id.add_content_fab)
+        mAddAnnouncementFab = findViewById(R.id.add_announcement_fab)
 
 
-        addAlarmActionText = findViewById(R.id.add_content_action_text)
-        addPersonActionText = findViewById(R.id.add_announcement_action_text)
+        addContentActionText = findViewById(R.id.add_content_action_text)
+        addAnnouncementActionText = findViewById(R.id.add_announcement_action_text)
 
-        mAddAlarmFab?.visibility = View.GONE
-        mAddPersonFab?.visibility = View.GONE
-        addAlarmActionText?.visibility = View.GONE
-        addPersonActionText?.visibility = View.GONE
+        mAddContentFab?.visibility = View.GONE
+        mAddAnnouncementFab?.visibility = View.GONE
+        addContentActionText?.visibility = View.GONE
+        addAnnouncementActionText?.visibility = View.GONE
 
         isAllFabsVisible = false
 
         mAddFab?.shrink()
 
-        mAddFab?.setOnClickListener(
-            View.OnClickListener {
+        mAddFab?.setOnClickListener{
                 isAllFabsVisible = if (!isAllFabsVisible!!) {
 
-                    // when isAllFabsVisible becomes
-                    // true make all the action name
-                    // texts and FABs VISIBLE.
-                    mAddAlarmFab?.show()
-                    mAddPersonFab?.show()
-                    addAlarmActionText?.setVisibility(View.VISIBLE)
-                    addPersonActionText?.setVisibility(View.VISIBLE)
+                    mAddContentFab?.show()
+                    mAddAnnouncementFab?.show()
+                    addContentActionText?.setVisibility(View.VISIBLE)
+                    addAnnouncementActionText?.setVisibility(View.VISIBLE)
 
-                    // Now extend the parent FAB, as
-                    // user clicks on the shrinked
-                    // parent FAB
                     mAddFab?.extend()
 
-                    // make the boolean variable true as
-                    // we have set the sub FABs
-                    // visibility to GONE
                     true
                 } else {
 
-                    // when isAllFabsVisible becomes
-                    // true make all the action name
-                    // texts and FABs GONE.
-                    mAddAlarmFab?.hide()
-                    mAddPersonFab?.hide()
-                    addAlarmActionText?.setVisibility(View.GONE)
-                    addPersonActionText?.setVisibility(View.GONE)
+                    mAddContentFab?.hide()
+                    mAddAnnouncementFab?.hide()
+                    addContentActionText?.setVisibility(View.GONE)
+                    addAnnouncementActionText?.setVisibility(View.GONE)
 
-                    // Set the FAB to shrink after user
-                    // closes all the sub FABs
                     mAddFab?.shrink()
 
-                    // make the boolean variable false
-                    // as we have set the sub FABs
-                    // visibility to GONE
                     false
                 }
-            })
-        //////////////////////////////
+            }
+
+        mAddContentFab?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_lecturerCourseContentActivity_to_addContentActivity)
+        }
+        mAddAnnouncementFab?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_lecturerCourseContentActivity_to_addAnnouncementActivity)
+        }
 
 
 
