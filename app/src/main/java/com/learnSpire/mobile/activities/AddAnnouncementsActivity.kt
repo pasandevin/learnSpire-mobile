@@ -26,50 +26,54 @@ class AddAnnouncementsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val courseId = EnrolledCoursesAdapter.courseId
-        val courseName = EnrolledCoursesAdapter.courseName
 
         binding.buttonSubmit.setOnClickListener {
             var announcementTitle = binding.editTextAnnouncementTitle.text.toString()
             var announcementContent = binding.editTextAnnouncementContent.text.toString()
 
-            var announcement = Announcement(courseId, announcementTitle, announcementContent)
+            // Check if the fields are empty or not
+            if (announcementTitle.isEmpty() || announcementContent.isEmpty()) {
 
-            // call the add course api
-            var addAnnouncementResponse = lmsApiService.addAnnouncement(announcement)
+                binding.errorTextView.text = "Please fill all the fields"
 
-            addAnnouncementResponse.enqueue(object : Callback<ResponseBody> {
+            } else {
 
-                override fun onResponse(
-                    call: Call<ResponseBody>,
-                    response: Response<ResponseBody>
-                ) {
-                    if (response.isSuccessful) {
+                var announcement = Announcement(courseId, announcementTitle, announcementContent)
 
-                        // show success message
-                        Toast.makeText(
-                            this@AddAnnouncementsActivity,
-                            "Announcement Added Successfully",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                // call the add course api
+                var addAnnouncementResponse = lmsApiService.addAnnouncement(announcement)
 
-                        // go to the course list fragment
-                        Intent(this@AddAnnouncementsActivity, LecturerMenuActivity::class.java).also {
-                            startActivity(it)
+                addAnnouncementResponse.enqueue(object : Callback<ResponseBody> {
+
+                    override fun onResponse(
+                        call: Call<ResponseBody>,
+                        response: Response<ResponseBody>
+                    ) {
+                        if (response.isSuccessful) {
+
+                            // show success message
+                            Toast.makeText(
+                                this@AddAnnouncementsActivity,
+                                "Announcement Added Successfully",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            // go to the course list fragment
+                            Intent(this@AddAnnouncementsActivity, LecturerMenuActivity::class.java).also {
+                                startActivity(it)
+                            }
+
+                        } else {
+                            // show error message
+                            println("Failed to add announcement")
                         }
+                    }
 
-                    } else {
-                        // show error message
+                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                         println("Failed to add announcement")
                     }
-                }
-
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    println("Failed to add announcement")
-                }
-            })
+                })
+            }
         }
-
-
-
     }
 }
