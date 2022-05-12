@@ -120,6 +120,7 @@ class LecturerCourseContentActivity : AppCompatActivity() {
 
         mAddAnnouncementFab?.setOnClickListener {
             //go to add announcement activity
+            clickAddFab()
             Intent(this, AddAnnouncementsActivity::class.java).also {
                 startActivity(it)
             }
@@ -127,6 +128,7 @@ class LecturerCourseContentActivity : AppCompatActivity() {
 
         mAddMarksFab?.setOnClickListener {
             //go to add marks activity
+            clickAddFab()
             Intent(this, AddMarksActivity::class.java).also {
                 startActivity(it)
             }
