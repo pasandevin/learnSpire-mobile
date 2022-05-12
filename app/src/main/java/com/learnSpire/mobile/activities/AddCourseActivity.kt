@@ -33,42 +33,50 @@ class AddCourseActivity : AppCompatActivity() {
             var courseId = binding.editTextCourseId.text.toString()
             var courseName = binding.editTextCourseName.text.toString()
 
-            var course = Course(courseId, courseName)
+            // check if the course id and name is empty or not
+            if (courseId.isEmpty() || courseName.isEmpty()) {
 
-            // call the add course api
-            var addCourseResponse = lmsApiService.addNewCourse(course)
+                binding.errorTextView.text = "Please fill all the fields"
 
-            addCourseResponse.enqueue(object : Callback<ResponseBody> {
+            } else {
 
-                override fun onResponse(
-                    call: Call<ResponseBody>,
-                    response: Response<ResponseBody>
-                ) {
-                    if (response.isSuccessful) {
+                // create a new course object
+                var course = Course(courseId, courseName)
 
-                        // show success message
-                        Toast.makeText(
-                            this@AddCourseActivity,
-                            "Course Added Successfully",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                // call the add course api
+                var addCourseResponse = lmsApiService.addNewCourse(course)
 
-                        // go to the course list fragment
-                        Intent(this@AddCourseActivity, LecturerMenuActivity::class.java).also {
-                            startActivity(it)
+                addCourseResponse.enqueue(object : Callback<ResponseBody> {
+
+                    override fun onResponse(
+                        call: Call<ResponseBody>,
+                        response: Response<ResponseBody>
+                    ) {
+                        if (response.isSuccessful) {
+
+                            // show success message
+                            Toast.makeText(
+                                this@AddCourseActivity,
+                                "Course Added Successfully",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            // go to the course list fragment
+                            Intent(this@AddCourseActivity, LecturerMenuActivity::class.java).also {
+                                startActivity(it)
+                            }
+
+                        } else {
+                            // show error message
+                            println("Failed to add course")
                         }
+                    }
 
-                    } else {
-                        // show error message
+                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                         println("Failed to add course")
                     }
-                }
-
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    println("Failed to add course")
-                }
-            })
+                })
+            }
         }
-
     }
 }
