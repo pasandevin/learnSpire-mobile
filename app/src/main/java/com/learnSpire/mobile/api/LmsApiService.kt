@@ -12,6 +12,9 @@ import retrofit2.http.POST
 
 interface LmsApiService {
 
+    @POST("/mark/getenrolledstudents")
+    fun getAllMarksForACourse(@Body courseId: String): Call<List<GetCourseMarksResponse>>
+
     @POST("/content/addcontent")
     fun addContent(@Body content: AddContentRequest): Call<ResponseBody>
 
