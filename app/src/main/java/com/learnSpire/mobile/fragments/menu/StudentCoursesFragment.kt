@@ -8,15 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
 import com.learnSpire.mobile.api.LmsApiService
-import com.learnSpire.mobile.databinding.FragmentCoursesBinding
+import com.learnSpire.mobile.databinding.FragmentStudentCoursesBinding
 import com.learnSpire.mobile.models.Course
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CoursesFragment : Fragment() {
+class StudentCoursesFragment : Fragment() {
 
-    private var _binding: FragmentCoursesBinding? = null
+    private var _binding: FragmentStudentCoursesBinding? = null
     private val binding get() = _binding!!
 
     private val lmsApiService = LmsApiService.create()
@@ -27,7 +27,7 @@ class CoursesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentCoursesBinding.inflate(inflater, container, false)
+        _binding = FragmentStudentCoursesBinding.inflate(inflater, container, false)
         return binding.root
 
     }

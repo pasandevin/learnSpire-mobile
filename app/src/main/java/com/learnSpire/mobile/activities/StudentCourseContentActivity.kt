@@ -6,23 +6,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.learnSpire.mobile.adapters.CourseContentAdapter
 import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
 import com.learnSpire.mobile.api.LmsApiService
-import com.learnSpire.mobile.databinding.ActivityCourseContentBinding
+import com.learnSpire.mobile.databinding.ActivityStudentCourseContentBinding
 import com.learnSpire.mobile.models.Content
 import com.learnSpire.mobile.models.GetContentRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CourseContentActivity : AppCompatActivity() {
+class StudentCourseContentActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCourseContentBinding
+    private lateinit var binding: ActivityStudentCourseContentBinding
 
     private val lmsApiService = LmsApiService.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityCourseContentBinding.inflate(layoutInflater)
+        binding = ActivityStudentCourseContentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // get course id and name
@@ -50,7 +50,7 @@ class CourseContentActivity : AppCompatActivity() {
 
                         // set recycler view
                         val recyclerView = binding.recyclerviewCourseContent
-                        recyclerView.layoutManager = LinearLayoutManager(this@CourseContentActivity)
+                        recyclerView.layoutManager = LinearLayoutManager(this@StudentCourseContentActivity)
 
                         // set adapter
                         val adapter = CourseContentAdapter(courseContentList)

@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_courses"
-        android:name="com.learnSpire.mobile.fragments.menu.CoursesFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.StudentCoursesFragment"
         android:label="@string/title_courses"
-        tools:layout="@layout/fragment_courses" >
+        tools:layout="@layout/fragment_student_courses" >
         <action
             android:id="@+id/action_CoursesFragment_to_CourseContentActivity"
             app:destination="@id/CourseContentActivity" />
@@ -41,7 +41,7 @@
         android:id="@+id/navigation_notifications"
         android:name="com.learnSpire.mobile.fragments.menu.NotificationsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_courses" >
+        tools:layout="@layout/fragment_student_courses" >
         <action
             android:id="@+id/action_NotificationsFragment_to_NotificationContentActivity"
             app:destination="@id/NotificationContentActivity" />
@@ -56,9 +56,9 @@
 
     <activity
         android:id="@+id/CourseContentActivity"
-        android:name="com.learnSpire.mobile.activities.CourseContentActivity"
+        android:name="com.learnSpire.mobile.activities.StudentCourseContentActivity"
         android:label="@string/title_content"
-        tools:layout="@layout/activity_course_content">
+        tools:layout="@layout/activity_student_course_content">
     </activity>
 
     <activity

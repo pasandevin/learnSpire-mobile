@@ -33,7 +33,7 @@
             android:exported="false"
             android:label="@string/title_activity_lecturer_menu" />
         <activity
-            android:name=".activities.CourseContentActivity"
+            android:name=".activities.StudentCourseContentActivity"
             android:exported="false"
             android:label="@string/title_activity_content" />
         <activity
