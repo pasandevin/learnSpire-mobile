@@ -57,5 +57,12 @@
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            app:layout_constraintStart_toEndOf="@+id/text_student_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
