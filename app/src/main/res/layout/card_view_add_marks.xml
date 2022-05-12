@@ -29,7 +29,7 @@
             app:layout_constraintVertical_bias="0.523" />
 
         <TextView
-            android:id="@+id/text_notification_title"
+            android:id="@+id/text_student_name"
             android:layout_width="307dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -43,7 +43,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/text_course_name"
+            android:id="@+id/text_marks"
             android:layout_width="307dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -53,7 +53,7 @@
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profilePictureImageView"
-            app:layout_constraintTop_toBottomOf="@+id/text_notification_title"
+            app:layout_constraintTop_toBottomOf="@+id/text_student_name"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
