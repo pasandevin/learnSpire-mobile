@@ -27,9 +27,11 @@ class LecturerCourseContentActivity : AppCompatActivity() {
 
     var mAddContentFab: FloatingActionButton? = null
     var mAddAnnouncementFab:FloatingActionButton? = null
+    var mAddMarksFab:FloatingActionButton? = null
     var mAddFab: ExtendedFloatingActionButton? = null
     var addContentActionText: TextView? = null
     var addAnnouncementActionText:TextView? = null
+    var addMarksActionText:TextView? = null
     var isAllFabsVisible: Boolean? = null
 
     private lateinit var binding: ActivityLecturerCourseContentBinding
@@ -85,15 +87,20 @@ class LecturerCourseContentActivity : AppCompatActivity() {
 
         mAddContentFab = findViewById(R.id.add_content_fab)
         mAddAnnouncementFab = findViewById(R.id.add_announcement_fab)
+        mAddMarksFab = findViewById(R.id.add_marks_fab)
 
 
         addContentActionText = findViewById(R.id.add_content_action_text)
         addAnnouncementActionText = findViewById(R.id.add_announcement_action_text)
+        addMarksActionText = findViewById(R.id.add_marks_action_text)
+
 
         mAddContentFab?.visibility = View.GONE
         mAddAnnouncementFab?.visibility = View.GONE
+        mAddMarksFab?.visibility = View.GONE
         addContentActionText?.visibility = View.GONE
         addAnnouncementActionText?.visibility = View.GONE
+        addMarksActionText?.visibility = View.GONE
 
         isAllFabsVisible = false
 
@@ -104,8 +111,10 @@ class LecturerCourseContentActivity : AppCompatActivity() {
 
                     mAddContentFab?.show()
                     mAddAnnouncementFab?.show()
+                    mAddMarksFab?.show()
                     addContentActionText?.setVisibility(View.VISIBLE)
                     addAnnouncementActionText?.setVisibility(View.VISIBLE)
+                    addMarksActionText?.setVisibility(View.VISIBLE)
 
                     mAddFab?.extend()
 
@@ -114,8 +123,10 @@ class LecturerCourseContentActivity : AppCompatActivity() {
 
                     mAddContentFab?.hide()
                     mAddAnnouncementFab?.hide()
+                    mAddMarksFab?.hide()
                     addContentActionText?.setVisibility(View.GONE)
                     addAnnouncementActionText?.setVisibility(View.GONE)
+                    addMarksActionText?.setVisibility(View.GONE)
 
                     mAddFab?.shrink()
 
@@ -133,6 +144,13 @@ class LecturerCourseContentActivity : AppCompatActivity() {
         mAddAnnouncementFab?.setOnClickListener {
             //go to add announcement activity
             Intent(this, AddAnnouncementsActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        mAddMarksFab?.setOnClickListener {
+            //go to add marks activity
+            Intent(this, AddMarksActivity::class.java).also {
                 startActivity(it)
             }
         }
