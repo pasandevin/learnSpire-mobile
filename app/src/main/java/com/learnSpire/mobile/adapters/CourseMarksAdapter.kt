@@ -20,8 +20,7 @@ class CourseMarksAdapter(var context: Context, var courseMarksList: List<GetCour
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (courseMarksList != null && courseMarksList!!.size > 0) {
             val (firstName, lastName, mark) = courseMarksList!![position]
-            holder.textview_first_name.text = firstName.toString()
-            holder.textview_last_name.text = lastName.toString()
+            holder.textview_student_name.text = firstName + " " + lastName
             holder.textview_mark.text = mark.toString()
         } else {
             return
@@ -33,13 +32,11 @@ class CourseMarksAdapter(var context: Context, var courseMarksList: List<GetCour
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textview_first_name: TextView
-        var textview_last_name: TextView
+        var textview_student_name: TextView
         var textview_mark: TextView
 
         init {
-            textview_first_name = itemView.findViewById(R.id.text_student_name)
-            textview_last_name = itemView.findViewById(R.id.text_student_name)
+            textview_student_name = itemView.findViewById(R.id.text_student_name)
             textview_mark = itemView.findViewById(R.id.text_marks)
         }
     }
