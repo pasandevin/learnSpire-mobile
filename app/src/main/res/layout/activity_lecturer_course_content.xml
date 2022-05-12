@@ -69,4 +69,25 @@
         app:layout_constraintEnd_toStartOf="@+id/add_announcement_fab"
         app:layout_constraintTop_toTopOf="@+id/add_announcement_fab" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_marks_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/add_announcement_fab"
+        app:layout_constraintEnd_toEndOf="@+id/add_announcement_fab"
+        app:layout_constraintStart_toStartOf="@+id/add_announcement_fab"
+        app:srcCompat="@drawable/ic_grade_black_24dp" />
+
+    <TextView
+        android:id="@+id/add_marks_action_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Marks"
+        app:layout_constraintBottom_toBottomOf="@+id/add_marks_fab"
+        app:layout_constraintEnd_toStartOf="@+id/add_marks_fab"
+        app:layout_constraintTop_toTopOf="@+id/add_marks_fab" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
