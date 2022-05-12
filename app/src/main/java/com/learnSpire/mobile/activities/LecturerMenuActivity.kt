@@ -27,7 +27,6 @@ class LecturerMenuActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_courses,
-                R.id.navigation_add,
                 R.id.navigation_profile
             )
         )

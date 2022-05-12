@@ -18,24 +18,7 @@
             app:destination="@id/AddCourseActivity" />
     </fragment>
 
-    <fragment
-        android:id="@+id/navigation_add"
-        android:name="com.learnSpire.mobile.fragments.menu.AddFragment"
-        android:label="@string/title_add"
-        tools:layout="@layout/fragment_add" >
-        <action
-            android:id="@+id/action_addFragment_to_addCourseActivity"
-            app:destination="@id/AddCourseActivity" />
-        <action
-            android:id="@+id/action_addFragment_to_addContentActivity"
-            app:destination="@id/AddContentActivity" />
-        <action
-            android:id="@+id/action_addFragment_to_addMarksActivity"
-            app:destination="@id/AddMarksActivity" />
-        <action
-            android:id="@+id/action_addFragment_to_addAnnouncementActivity"
-            app:destination="@id/AddAnnouncementsActivity" />
-    </fragment>
+
 
     <fragment
         android:id="@+id/navigation_profile"
