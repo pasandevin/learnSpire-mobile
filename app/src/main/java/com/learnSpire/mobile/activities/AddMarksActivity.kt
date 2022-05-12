@@ -2,13 +2,10 @@ package com.learnSpire.mobile.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
-import com.learnSpire.mobile.adapters.MarksAdapter
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.databinding.ActivityAddMarksBinding
-import com.learnSpire.mobile.models.CourseMarksResponse
-import com.learnSpire.mobile.models.MarksResponse
+import com.learnSpire.mobile.models.GetCourseMarksResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,18 +26,18 @@ class AddMarksActivity : AppCompatActivity() {
         val courseId = EnrolledCoursesAdapter.courseId
         val courseName = EnrolledCoursesAdapter.courseName
 
-        var courseMarksList = ArrayList<CourseMarksResponse>()
+        var courseMarksList = ArrayList<GetCourseMarksResponse>()
 
         // call the add course api
         var getCourseMarksResponse = lmsApiService.getAllMarksForACourse(courseId)
 
-        getCourseMarksResponse.enqueue(object: Callback<List<CourseMarksResponse>> {
-            override fun onResponse(call: Call<List<CourseMarksResponse>>, response: Response<List<CourseMarksResponse>>) {
-                val body = response.body()
+        getCourseMarksResponse.enqueue(object: Callback<List<GetCourseMarksResponse>> {
+            override fun onResponse(call: Call<List<GetCourseMarksResponse>>, responseGet: Response<List<GetCourseMarksResponse>>) {
+                val body = responseGet.body()
 
                 body.let {
                     if (it != null) {
-                        courseMarksList = it as ArrayList<CourseMarksResponse>
+                        courseMarksList = it as ArrayList<GetCourseMarksResponse>
                         val marksList2 = courseMarksList.toList()
 
                         println(marksList2)
@@ -50,7 +47,7 @@ class AddMarksActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<List<CourseMarksResponse>>, t: Throwable) {
+            override fun onFailure(call: Call<List<GetCourseMarksResponse>>, t: Throwable) {
                 println("Get all marks for a course failed")
             }
         })
