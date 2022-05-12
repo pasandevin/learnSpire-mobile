@@ -107,38 +107,15 @@ class LecturerCourseContentActivity : AppCompatActivity() {
         mAddFab?.shrink()
 
         mAddFab?.setOnClickListener{
-                isAllFabsVisible = if (!isAllFabsVisible!!) {
-
-                    mAddContentFab?.show()
-                    mAddAnnouncementFab?.show()
-                    mAddMarksFab?.show()
-                    addContentActionText?.setVisibility(View.VISIBLE)
-                    addAnnouncementActionText?.setVisibility(View.VISIBLE)
-                    addMarksActionText?.setVisibility(View.VISIBLE)
-
-                    mAddFab?.extend()
-
-                    true
-                } else {
-
-                    mAddContentFab?.hide()
-                    mAddAnnouncementFab?.hide()
-                    mAddMarksFab?.hide()
-                    addContentActionText?.setVisibility(View.GONE)
-                    addAnnouncementActionText?.setVisibility(View.GONE)
-                    addMarksActionText?.setVisibility(View.GONE)
-
-                    mAddFab?.shrink()
-
-                    false
-                }
-            }
+            clickAddFab()
+        }
 
         mAddContentFab?.setOnClickListener {
             //go to add content activity
             Intent(this, AddContentActivity::class.java).also {
                 startActivity(it)
             }
+
         }
 
         mAddAnnouncementFab?.setOnClickListener {
@@ -153,6 +130,35 @@ class LecturerCourseContentActivity : AppCompatActivity() {
             Intent(this, AddMarksActivity::class.java).also {
                 startActivity(it)
             }
+        }
+
+    }
+
+    private fun clickAddFab () {
+        isAllFabsVisible = if (!isAllFabsVisible!!) {
+
+            mAddContentFab?.show()
+            mAddAnnouncementFab?.show()
+            mAddMarksFab?.show()
+            addContentActionText?.setVisibility(View.VISIBLE)
+            addAnnouncementActionText?.setVisibility(View.VISIBLE)
+            addMarksActionText?.setVisibility(View.VISIBLE)
+
+            mAddFab?.extend()
+
+            true
+        } else {
+
+            mAddContentFab?.hide()
+            mAddAnnouncementFab?.hide()
+            mAddMarksFab?.hide()
+            addContentActionText?.setVisibility(View.GONE)
+            addAnnouncementActionText?.setVisibility(View.GONE)
+            addMarksActionText?.setVisibility(View.GONE)
+
+            mAddFab?.shrink()
+
+            false
         }
 
     }
