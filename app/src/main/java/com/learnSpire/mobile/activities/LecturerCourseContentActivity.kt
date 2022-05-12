@@ -119,16 +119,16 @@ class LecturerCourseContentActivity : AppCompatActivity() {
         }
 
         mAddAnnouncementFab?.setOnClickListener {
-            //go to add announcement activity
             clickAddFab()
+            //go to add announcement activity
             Intent(this, AddAnnouncementsActivity::class.java).also {
                 startActivity(it)
             }
         }
 
         mAddMarksFab?.setOnClickListener {
-            //go to add marks activity
             clickAddFab()
+            //go to add marks activity
             Intent(this, AddMarksActivity::class.java).also {
                 startActivity(it)
             }
