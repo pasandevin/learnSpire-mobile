@@ -4,40 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:background="@color/rippleColor"
     tools:context=".activities.AddCourseActivity">
 
-
-    <EditText
-        android:id="@+id/edit_text_course_id"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/addCourseDescription"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Course ID"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/regular"
+        android:gravity="center"
+        android:text="Add course and make the world educated..."
+        android:textColor="@color/text_color2"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="99dp" />
+        tools:ignore="SpUsage" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edit_text_course_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Course Name"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_course_id"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="97dp" />
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/round_view_white_corner20"
+        android:drawableStart="@drawable/ic_course_name"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/regular"
+        android:gravity="start|center_vertical"
+        android:hint="Course Name"
+        android:inputType="text"
+        android:maxLength="255"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/gull_gray"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCourseDescription" />
 
-    <Button
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edit_text_course_id"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_view_white_corner20"
+        android:drawableStart="@drawable/ic_course_id"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/regular"
+        android:gravity="start|center_vertical"
+        android:hint="Course ID"
+        android:inputType="text"
+        android:maxLength="100"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/gull_gray"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_course_name" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_submit"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:enabled="true"
+        android:fontFamily="@font/regular"
+        android:minWidth="170dp"
+        android:text="Add"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:backgroundTint="@color/button_selector"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/errorTextView"
+        app:rippleColor="@color/rippleColor"
+        tools:ignore="SpUsage" />
+
+    <TextView
+        android:id="@+id/errorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_course_name"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="147dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="#F80000"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_course_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
