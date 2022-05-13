@@ -57,7 +57,7 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
         holder.updateButton.setOnClickListener {
 
             val builder: AlertDialog.Builder = android.app.AlertDialog.Builder(it.context)
-            builder.setTitle("Update Marks of " + holder.textviewStudentName.text)
+            builder.setTitle(" ")
 
             // Set up the input
             val input = EditText(it.context)
