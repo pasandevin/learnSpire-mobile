@@ -7,14 +7,14 @@
         android:title="@string/title_courses" />
 
     <item
-        android:id="@+id/navigation_marks"
-        android:icon="@drawable/ic_grade_black_24dp"
-        android:title="@string/title_marks" />
-
-    <item
         android:id="@+id/navigation_browse"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="@string/title_browse" />
+
+    <item
+        android:id="@+id/navigation_marks"
+        android:icon="@drawable/ic_grade_black_24dp"
+        android:title="@string/title_marks" />
 
     <item
         android:id="@+id/navigation_notifications"
