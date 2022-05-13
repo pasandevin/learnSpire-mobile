@@ -2,22 +2,19 @@ package com.learnSpire.mobile.adapters
 
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.content.Intent
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.learnSpire.mobile.R
-import com.learnSpire.mobile.activities.LecturerMenuActivity
 import com.learnSpire.mobile.adapters.CourseMarksAdapter.ViewHolder
 import com.learnSpire.mobile.api.LmsApiService
-import com.learnSpire.mobile.models.GetCourseMarksResponse
 import com.learnSpire.mobile.models.AddMarksRequest
+import com.learnSpire.mobile.models.GetCourseMarksResponse
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,7 +34,7 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val courseMarks: GetCourseMarksResponse = courseMarksList[position]
+        var courseMarks: GetCourseMarksResponse = courseMarksList[position]
 
         // generate random color
         val generator = ColorGenerator.MATERIAL
@@ -59,25 +56,33 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
         // set the onclick listener
         holder.updateButton.setOnClickListener {
 
-
             val builder: AlertDialog.Builder = android.app.AlertDialog.Builder(it.context)
-            builder.setTitle("Update Marks for " + holder.textviewStudentName.text)
+            builder.setTitle("Update Marks of " + holder.textviewStudentName.text)
 
             // Set up the input
             val input = EditText(it.context)
+
             // Specify the type of input expected
-            input.hint = "Enter Marks"
+            input.hint = "Enter the marks"
             input.inputType = InputType.TYPE_CLASS_TEXT
             builder.setView(input)
 
             // Set up the buttons
             builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+
                 // Here you get get input text from the Edittext
                 var mark = input.text.toString()
+
                 if (mark.isEmpty()) {
+
                     //makeToast
-                    Toast.makeText(it.context, "Please enter marks", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(it.context, "Please enter the marks", Toast.LENGTH_SHORT).show()
+
                 } else {
+
+                    // update the marks on the fragment card
+                    courseMarks.marks = mark.toInt()
+                    notifyItemChanged(position)
 
                     var courseId = EnrolledCoursesAdapter.courseId
                     var email = courseMarks.email
@@ -89,19 +94,16 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
 
                     addMarksResponse.enqueue(object : Callback<ResponseBody> {
 
-                        override fun onResponse(
-                            call: Call<ResponseBody>,
-                            response: Response<ResponseBody>
-                        ) {
+                        override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+
                             if (response.isSuccessful) {
 
                                 // show success message
                                 Toast.makeText(
                                     it.context,
-                                    "Marks Added Successfully",
+                                    "Marks Updated Successfully",
                                     Toast.LENGTH_SHORT
                                 ).show()
-
 
                             } else {
                                 // show error message
@@ -113,8 +115,6 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
                             println("Failed to add marks")
                         }
                     })
-
-
                 }
             })
             builder.setNegativeButton(
@@ -135,5 +135,4 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
         val imageView: ImageView = itemView.findViewById(R.id.profilePictureImageView)
         val updateButton: Button = itemView.findViewById(R.id.updateButton)
     }
-
 }

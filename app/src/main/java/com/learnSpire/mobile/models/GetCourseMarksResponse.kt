@@ -4,5 +4,5 @@ data class GetCourseMarksResponse (
     val email: String,
     val firstName: String,
     val lastName: String,
-    val marks: Number
-        )
+    var marks: Number
+)
