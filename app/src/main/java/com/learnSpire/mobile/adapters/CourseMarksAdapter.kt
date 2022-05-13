@@ -1,9 +1,13 @@
 package com.learnSpire.mobile.adapters
 
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +17,8 @@ import com.learnSpire.mobile.R
 import com.learnSpire.mobile.adapters.CourseMarksAdapter.ViewHolder
 import com.learnSpire.mobile.models.GetCourseMarksResponse
 
-class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksResponse>) : RecyclerView.Adapter<ViewHolder>() {
+class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksResponse>) :
+    RecyclerView.Adapter<ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +39,7 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
 
         // generate thumbnail image
         val drawable = TextDrawable.builder()
-            .buildRound(letter, generator.getRandomColor())
+            .buildRound(letter, generator.randomColor)
 
         // set the thumbnail image
         holder.imageView.setImageDrawable(drawable)
@@ -45,7 +50,28 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
 
         // set the onclick listener
         holder.updateButton.setOnClickListener {
-            println("Update button clicked")
+
+            var dialogText: String
+            val builder: AlertDialog.Builder = android.app.AlertDialog.Builder(it.context)
+            builder.setTitle("Update Marks for " + holder.textviewStudentName.text)
+
+            // Set up the input
+            val input = EditText(it.context)
+            // Specify the type of input expected
+            input.hint = "Enter Marks"
+            input.inputType = InputType.TYPE_CLASS_TEXT
+            builder.setView(input)
+
+            // Set up the buttons
+            builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+                // Here you get get input text from the Edittext
+                dialogText = input.text.toString()
+            })
+            builder.setNegativeButton(
+                "Cancel",
+                DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
+
+            builder.show()
         }
     }
 
@@ -59,4 +85,5 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
         val imageView: ImageView = itemView.findViewById(R.id.profilePictureImageView)
         val updateButton: Button = itemView.findViewById(R.id.updateButton)
     }
+
 }
