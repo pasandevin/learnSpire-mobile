@@ -27,7 +27,7 @@ class AddContentActivity : AppCompatActivity() {
         val courseId = EnrolledCoursesAdapter.courseId
         val courseName = EnrolledCoursesAdapter.courseName
 
-        title = "Add Content: $courseName"
+        title = "Add Content"
 
         binding.buttonSubmit.setOnClickListener {
             var contentTitle = binding.editTextContentTitle.text.toString()
