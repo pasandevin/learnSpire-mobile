@@ -48,7 +48,7 @@ class AddMarksActivity : AppCompatActivity() {
                         recyclerView.layoutManager = LinearLayoutManager(this@AddMarksActivity)
 
                         // set adapter
-                        val adapter = CourseMarksAdapter(this@AddMarksActivity, marksList2)
+                        val adapter = CourseMarksAdapter(marksList2)
                         recyclerView.adapter = adapter
 
 
