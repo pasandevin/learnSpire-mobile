@@ -54,9 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/add_content_fab"
-        app:layout_constraintEnd_toEndOf="@+id/add_content_fab"
-        app:layout_constraintStart_toStartOf="@+id/add_content_fab"
+        app:layout_constraintBottom_toTopOf="@+id/add_marks_fab"
+        app:layout_constraintEnd_toEndOf="@+id/add_marks_fab"
+        app:layout_constraintStart_toStartOf="@+id/add_marks_fab"
         app:srcCompat="@drawable/ic_bell_black_24dp" />
 
     <TextView
@@ -75,9 +75,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/add_announcement_fab"
-        app:layout_constraintEnd_toEndOf="@+id/add_announcement_fab"
-        app:layout_constraintStart_toStartOf="@+id/add_announcement_fab"
+        app:layout_constraintBottom_toTopOf="@+id/add_content_fab"
+        app:layout_constraintEnd_toEndOf="@+id/add_content_fab"
+        app:layout_constraintStart_toStartOf="@+id/add_content_fab"
         app:srcCompat="@drawable/ic_grade_black_24dp" />
 
     <TextView
