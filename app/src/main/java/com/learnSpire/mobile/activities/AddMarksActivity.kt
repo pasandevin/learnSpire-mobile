@@ -31,7 +31,7 @@ class AddMarksActivity : AppCompatActivity() {
 
         var courseMarksList = ArrayList<GetCourseMarksResponse>()
 
-        // call the add course api
+        // call the add course marks api
         var getCourseMarksResponse = lmsApiService.getAllMarksForACourse(courseId)
 
         getCourseMarksResponse.enqueue(object: Callback<List<GetCourseMarksResponse>> {

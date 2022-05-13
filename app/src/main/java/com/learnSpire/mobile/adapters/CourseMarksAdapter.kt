@@ -2,23 +2,31 @@ package com.learnSpire.mobile.adapters
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.learnSpire.mobile.R
+import com.learnSpire.mobile.activities.LecturerMenuActivity
 import com.learnSpire.mobile.adapters.CourseMarksAdapter.ViewHolder
+import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.models.GetCourseMarksResponse
+import com.learnSpire.mobile.models.AddMarksRequest
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksResponse>) :
     RecyclerView.Adapter<ViewHolder>() {
+
+    private val lmsApiService = LmsApiService.create()
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,7 +59,7 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
         // set the onclick listener
         holder.updateButton.setOnClickListener {
 
-            var dialogText: String
+
             val builder: AlertDialog.Builder = android.app.AlertDialog.Builder(it.context)
             builder.setTitle("Update Marks for " + holder.textviewStudentName.text)
 
@@ -65,7 +73,49 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
             // Set up the buttons
             builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
                 // Here you get get input text from the Edittext
-                dialogText = input.text.toString()
+                var mark = input.text.toString()
+                if (mark.isEmpty()) {
+                    //makeToast
+                    Toast.makeText(it.context, "Please enter marks", Toast.LENGTH_SHORT).show()
+                } else {
+
+                    var courseId = EnrolledCoursesAdapter.courseId
+                    var email = courseMarks.email
+
+                    val addMarksRequest = AddMarksRequest(courseId, email, mark.toInt())
+
+                    // call the add course marks api
+                    var addMarksResponse = lmsApiService.addMarks(addMarksRequest)
+
+                    addMarksResponse.enqueue(object : Callback<ResponseBody> {
+
+                        override fun onResponse(
+                            call: Call<ResponseBody>,
+                            response: Response<ResponseBody>
+                        ) {
+                            if (response.isSuccessful) {
+
+                                // show success message
+                                Toast.makeText(
+                                    it.context,
+                                    "Marks Added Successfully",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+
+
+                            } else {
+                                // show error message
+                                println("Failed to add marks")
+                            }
+                        }
+
+                        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                            println("Failed to add marks")
+                        }
+                    })
+
+
+                }
             })
             builder.setNegativeButton(
                 "Cancel",
