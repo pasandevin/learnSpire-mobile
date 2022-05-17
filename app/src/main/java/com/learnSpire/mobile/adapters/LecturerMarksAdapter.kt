@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.learnSpire.mobile.R
-import com.learnSpire.mobile.adapters.CourseMarksAdapter.ViewHolder
+import com.learnSpire.mobile.adapters.LecturerMarksAdapter.ViewHolder
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.models.AddMarksRequest
 import com.learnSpire.mobile.models.GetCourseMarksResponse
@@ -20,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksResponse>) :
+class LecturerMarksAdapter(private val courseMarksList: List<GetCourseMarksResponse>) :
     RecyclerView.Adapter<ViewHolder>() {
 
     private val lmsApiService = LmsApiService.create()
@@ -28,7 +28,7 @@ class CourseMarksAdapter(private val courseMarksList: List<GetCourseMarksRespons
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_view_add_marks, parent, false)
+            .inflate(R.layout.card_view_update_marks, parent, false)
 
         return ViewHolder(view)
     }

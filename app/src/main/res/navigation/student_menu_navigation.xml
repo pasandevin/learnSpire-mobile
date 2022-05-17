@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_courses"
-        android:name="com.learnSpire.mobile.fragments.menu.StudentCoursesFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.student.StudentCoursesFragment"
         android:label="@string/title_courses"
         tools:layout="@layout/fragment_student_courses" >
         <action
@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/navigation_browse"
-        android:name="com.learnSpire.mobile.fragments.menu.BrowseFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.student.BrowseFragment"
         android:label="@string/title_browse"
         tools:layout="@layout/fragment_browse" />
 
     <fragment
         android:id="@+id/navigation_marks"
-        android:name="com.learnSpire.mobile.fragments.menu.MarksFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.student.MarksFragment"
         android:label="@string/title_marks"
         tools:layout="@layout/fragment_marks" />
 
@@ -39,7 +39,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.learnSpire.mobile.fragments.menu.NotificationsFragment"
+        android:name="com.learnSpire.mobile.fragments.menu.student.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_student_courses" >
         <action

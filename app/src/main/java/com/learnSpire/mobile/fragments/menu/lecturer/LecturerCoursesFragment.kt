@@ -1,22 +1,25 @@
-package com.learnSpire.mobile.fragments.menu
+package com.learnSpire.mobile.fragments.menu.lecturer
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.learnSpire.mobile.adapters.AvailableCoursesAdapter
+import com.learnSpire.mobile.R
+import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
 import com.learnSpire.mobile.api.LmsApiService
-import com.learnSpire.mobile.databinding.FragmentBrowseBinding
+import com.learnSpire.mobile.databinding.FragmentLecturerCoursesBinding
 import com.learnSpire.mobile.models.Course
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BrowseFragment : Fragment() {
+class LecturerCoursesFragment : Fragment() {
 
-    private var _binding: FragmentBrowseBinding? = null
+
+    private var _binding: FragmentLecturerCoursesBinding? = null
     private val binding get() = _binding!!
 
     private val lmsApiService = LmsApiService.create()
@@ -27,7 +30,7 @@ class BrowseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentBrowseBinding.inflate(inflater, container, false)
+        _binding = FragmentLecturerCoursesBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -35,34 +38,38 @@ class BrowseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var availableCoursesList = ArrayList<Course>()
+        var enrolledCoursesList = ArrayList<Course>()
 
         // call the get enrolled courses api
-        var getAvailableCoursesResponse = lmsApiService.getAvailableCourses()
+        var getEnrolledCoursesResponse = lmsApiService.getEnrolledCourses()
 
-        getAvailableCoursesResponse.enqueue(object: Callback<List<Course>> {
+        getEnrolledCoursesResponse.enqueue(object: Callback<List<Course>> {
             override fun onResponse(call: Call<List<Course>>, response: Response<List<Course>>) {
                 val body = response.body()
 
                 body.let {
                     if (it != null) {
-                        availableCoursesList = it as ArrayList<Course>
+                        enrolledCoursesList = it as ArrayList<Course>
 
                         // set recycler view
-                        val recyclerView = binding.recyclerviewAvailableCourses
+                        val recyclerView = binding.recyclerviewEnrolledCourses
                         recyclerView.layoutManager = LinearLayoutManager(activity)
 
                         // set adapter
-                        val adapter = AvailableCoursesAdapter(availableCoursesList)
+                        val adapter = EnrolledCoursesAdapter(enrolledCoursesList)
                         recyclerView.adapter = adapter
                     }
                 }
             }
 
             override fun onFailure(call: Call<List<Course>>, t: Throwable) {
-                println("Get Available Courses failed")
+                println("Get Enrolled Courses failed")
             }
         })
+
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_CoursesFragment_to_AddCourseActivity)
+        }
     }
 
     override fun onDestroyView() {

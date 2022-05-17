@@ -1,19 +1,14 @@
-package com.learnSpire.mobile.fragments.menu
+package com.learnSpire.mobile.fragments.menu.student
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
 import com.learnSpire.mobile.adapters.NotificationsAdapter
 import com.learnSpire.mobile.api.LmsApiService
-import com.learnSpire.mobile.databinding.FragmentBrowseBinding
 import com.learnSpire.mobile.databinding.FragmentNotificationsBinding
-import com.learnSpire.mobile.models.Course
 import com.learnSpire.mobile.models.GetNotificationsResponse
 import retrofit2.Call
 import retrofit2.Callback

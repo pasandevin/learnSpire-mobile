@@ -3,8 +3,7 @@ package com.learnSpire.mobile.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.learnSpire.mobile.adapters.CourseContentAdapter
-import com.learnSpire.mobile.adapters.CourseMarksAdapter
+import com.learnSpire.mobile.adapters.LecturerMarksAdapter
 import com.learnSpire.mobile.adapters.EnrolledCoursesAdapter
 import com.learnSpire.mobile.api.LmsApiService
 import com.learnSpire.mobile.databinding.ActivityAddMarksBinding
@@ -48,7 +47,7 @@ class AddMarksActivity : AppCompatActivity() {
                         recyclerView.layoutManager = LinearLayoutManager(this@AddMarksActivity)
 
                         // set adapter
-                        val adapter = CourseMarksAdapter(marksList2)
+                        val adapter = LecturerMarksAdapter(marksList2)
                         recyclerView.adapter = adapter
 
 

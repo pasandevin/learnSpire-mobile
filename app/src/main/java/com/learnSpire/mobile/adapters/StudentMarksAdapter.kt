@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.learnSpire.mobile.R
 import com.learnSpire.mobile.models.MarksResponse
 
-class MarksAdapter(var context: Context, var marksList: List<MarksResponse>?) :
-    RecyclerView.Adapter<MarksAdapter.ViewHolder>() {
+class StudentMarksAdapter(var context: Context, var marksList: List<MarksResponse>?) :
+    RecyclerView.Adapter<StudentMarksAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_view_marks, parent, false)
         return ViewHolder(view)
