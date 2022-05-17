@@ -9,7 +9,7 @@
     >
 
     <TableRow
-        android:background="@color/dark_green">
+        android:background="@color/green_accent">
         <TextView
             android:text="Course Name"
             android:textSize="16dp"
