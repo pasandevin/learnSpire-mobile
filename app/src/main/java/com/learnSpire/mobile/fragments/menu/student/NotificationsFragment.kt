@@ -49,7 +49,7 @@ class NotificationsFragment : Fragment() {
 
                         // reverse the list
                         if (notificationsList.size != 0) {
-                            notificationsList = notificationsList.reversed() as ArrayList<GetNotificationsResponse>
+                            notificationsList = ArrayList(notificationsList.reversed())
                         }
 
                         // set recycler view
